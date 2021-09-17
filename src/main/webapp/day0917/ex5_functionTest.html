@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+
+	document.write("안녕하세요 재석님 자바스크립트에 온것을 환영합니다.<br>");
+	document.write("안녕하세요 명수님 자바스크립트에 온것을 환영합니다.<br>");
+	document.write("안녕하세요 호동님 자바스크립트에 온것을 환영합니다.<br>");
+
+	
+	/* 중복되는 부분을 함수로 포장... */
+	/* 중복되지 않은 부분은 파라메타로 만든 후, 함수호출할때 넘긴다 */
+	function showName(name){
+		document.write("안녕하세요 " + name + "님 자바스크립트에 온것을 환영합니다.<br>");
+	}
+	
+	showName("재석");
+	showName("명수");
+	showName("호동");
+	
+	
+	//Q. A님의 나이는 B살입니다 로 출력해보기 (2명)... showInfo
+	function showInfo(name, age){
+		document.write(name +"님의 나이는 "+ age +"살 입니다.<br>");
+	}
+	
+	showInfo("재석", 30);
+	showInfo("명수", 40);
+	
+	
+	/* 학교: **대학교 */
+	/* 학과: 컴퓨터 공학과 */
+	/* 학년: 2학년 */
+	
+	function shool(college, major, grade){
+		document.write("학교: "+ college +"<br>");
+		document.write("학과: "+ major +"<br>");
+		document.write("학년: "+ grade +"학년<br>");
+	}
+	
+	shool("단국대학교", "정치외교학과", 2);
+	shool("한국정통문화대학교", "건축과", 3);
+	shool("방송통신대학교", "임상병리학과", 4);
+	
+	
+	///////
+	var showStu = function(univ, major, grade){
+		document.write("학교: "+ univ +"<br>");
+		document.write("학과: "+ major +"<br>");
+		document.write("학년: "+ grade +"학년<br>");
+	}
+	
+	showStu("단국대학교", "정치외교학과", 1);
+
+</script>
+</head>
+<body>
+
+</body>
+</html>

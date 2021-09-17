@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Insert title here</title>
+
+<!-- js의 출력 -->
+<!-- 1. innerHtml - html 요소안에 출력 -->
+<!-- 2. document.write() - html 요소없이 ()안의 내용을 화면에 출력 -->
+<!-- 3. console.log - 블라우져의 콘솔탭에 출력 -->
+<!-- 4. window.alert() - 경고창을 띄우며 출력 -->
+
+<script type="text/javascript">
+
+	var name1="이";
+	var name2="수";
+	var name3="연";
+	
+	var name=name1+name2+name3;
+	
+	document.write("안녕하세요! <br>" + name +"입니다<br>");
+	document.write("자바스크립트<br> '자바스크립트 1일차'<br>");
+
+	var a;
+	a="변수만들기";
+	a="100";
+	document.write(a+1);
+	
+	
+	//대입연산자
+	var b=10;
+	document.write(b+"<br>");
+	b+=5;
+	document.write(b+"<br>");
+	
+	//증감연산자
+	var b=20;
+	b++;
+	document.write(b+"<br>");
+	
+	b++;
+	console.log(b);
+	
+</script>
+
+</head>
+<body>
+
+</body>
+</html>
