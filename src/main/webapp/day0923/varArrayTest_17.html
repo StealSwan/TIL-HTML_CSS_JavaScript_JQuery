@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Insert title here</title>
+</head>
+<body>
+
+	<script type="text/javascript">
+	
+		var food=["딸기", "사과", "바나나", "망고"];
+		document.write("배열테스트<br>");
+		
+/* 		document.write("food[0]="+food[0],"<br>");
+		document.write("food[1]="+food[1],"<br>");
+		document.write("food[2]="+food[2],"<br>");
+		document.write("food[3]="+food[3],"<br>");
+ */
+ 
+ 	for(var i=0; i<food.length; i++){
+ 		document.write("food[" + (i+1) + "]:	" + food[i] + "<br>")
+ 	}
+ 
+ 	document.write("------------------------------------------------------")
+ 
+	</script>
+	
+	
+	<h2>10개의 난수 출력하기</h2>
+	<script type="text/javascript">
+	
+		var rnd;
+		for(var i=1; i<=10; i++){
+			rnd=parseInt(Math.random()*10)+1;
+			//document.write('<h2>'+rnd+'</h2>');
+			document.write('<b>'+rnd+'</b>&nbsp;&nbsp;');
+		}
+
+	 document.write("<br>------------------------------------------------------")
+	
+	</script>
+	
+ 		
+	<h2>자바스크립트에서의 배열선언</h2>
+	<script type="text/javascript">
+	
+		var arr=new Array();
+		arr[0]="장미꽃";
+		arr[1]="국화";
+		arr[2]="후리지아";
+		arr[3]="제라늄";
+		
+		for(var i=0; i<arr.length; i++){
+			document.write(arr[i]+'<br>');
+		}
+
+	 document.write("------------------------------------------------------")		
+		
+	</script>
+	
+	
+	<h2>자바스크립트에서의 배열선언방법_초기값지정_#2</h2>
+	<script type="text/javascript">
+	
+	var arr2=['red', 'green', 'magenta', 'cyan', 'yellow', 'gray'];
+	
+	for(var i=0; i<arr2.length; i++){
+		document.write("<font color='"+arr2[i]+"' size='5'>Hello</font><br>");
+	}
+
+	 document.write("------------------------------------------------------")	
+	 
+	</script>
+	
+	
+	<h2>자바스크립트에서의 2차원배열 선언방법_#3</h2>
+	<script type="text/javascript">
+	
+		var arr3=new Array();
+		arr3[0] =['red', '장미꽃'];	//0번째
+		arr3[1] =['blue', '수국'];
+		arr3[2] =['yellow', '후레지아'];
+		arr3[3] =['cyan', '제라늄'];
+		
+		for(var i=0; i<arr3.length; i++){
+			document.write("<font color='"+arr3[i][0]+"' size='5'>"+arr3[i][1]+"</font><br>");
+		}
+	
+	</script>
+
+</body>
+</html>

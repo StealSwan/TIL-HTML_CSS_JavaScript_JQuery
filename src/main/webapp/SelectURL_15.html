@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+
+	function moveToUrl(url){
+		document.location.href=url;
+	}
+
+</script>
+
+</head>
+<body>
+
+	<form action="" name="frm">
+		<select name="list" onchange="if(this.value) window.open(this.value)">
+			<option value="">선택하세요</option>
+			<option value="https://www.naver.com/">네이버</option>
+			<option value="https://www.google.co.kr/">구글</option>
+			<option value="https://www.daum.net/">다음</option>
+		</select>
+	</form>
+	
+	<br><br>
+	
+	<form action="" name="frm2">
+		<select name="list2" onchange="location=document.frm2.list2.value">
+			<option value="">선택하세요</option>
+			<option value="https://www.naver.com/">네이버</option>
+			<option value="https://www.google.co.kr/">구글</option>
+			<option value="https://www.daum.net/">다음</option>
+		</select>
+	</form>
+	
+	<br><br>
+
+	<form action="" name="myform">
+		<select name="url" onchange="moveToUrl(this.value)">
+			<option value="">선택하세요</option>
+			<option value="https://www.naver.com/">네이버</option>
+			<option value="https://www.google.co.kr/">구글</option>
+			<option value="https://www.daum.net/">다음</option>
+		</select>
+	</form>
+	
+
+</body>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Insert title here</title>
+
+<script type="text/javascript">
+	
+	//헤드 태그에 자바 스크립트있을 때 body dom객체에 접근해 변경하고 싶을때
+	//window.onload는 body 페이지가 다 준비된 이후에 발동
+	window.onload=function(){
+	
+	//스크립트에서 html의 dom객체에 접근하려면 반드시 id를 이용한다
+	document.getElementById('name');
+	//접근할 수는 있는데 변경은 못시킨다 - body 테그에 자바 스크립트가 있으면 가능
+	//모든 것들을 순차적으로 바꾼 뒤, body가 끝나기 전에 쓰는 게 좋다함
+	document.getElementById('name').innerHTML='이길동';
+	
+	}
+</script>
+
+</head>
+<body>
+
+	<p id="name">홍길동</p>
+
+</body>
+</html>

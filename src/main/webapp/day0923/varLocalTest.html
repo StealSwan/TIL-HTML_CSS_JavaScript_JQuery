@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+
+	//전역변수
+	var a=10;
+	var b=100;
+	
+	function outer(){
+		
+		var a = 20;
+		document.write("3.outer a=" +a+"<br>");
+		document.write("4.outer b=" +b+"<br>");
+	}
+	
+	document.write("1.a=" +a+"<br>");
+	document.write("2.b=" +b+"<br>");
+
+	outer();
+	
+</script>
+</head>
+<body>
+
+</body>
+</html>
