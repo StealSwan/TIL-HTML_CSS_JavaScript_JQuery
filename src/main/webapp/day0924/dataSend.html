@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+
+	function dataSend(){
+		/* 현재 열린 창을 opener라고 한다 */
+		opener.frm.name.value=frm.name.value;
+		opener.frm.addr.value=frm.addr.value;
+		opener.frm.hp.value=frm.hp.value;
+		
+		//현재 열려있는 곳이 opener.document
+		window.close();
+	}
+
+</script>
+
+</head>
+<body>
+
+	<form action="" name="frm" onsubmit="return false">
+		<table>
+			<tr>
+				<th width="100">이름</th>
+					<td width="200">
+						<input type="text" name="name" required>
+					</td>
+			</tr>
+			
+			<tr>
+				<th width="100">주소</th>
+					<td width="200">
+						<input type="text" name="addr">
+					</td>
+			</tr>			
+			
+			<tr>
+				<th width="100">연락처</th>
+					<td width="200">
+						<input type="text" name="hp">
+					</td>
+			</tr>			
+			
+			<tr align="center">
+				<td colspan="2"><input type="button" value="테이타전송" onclick="dataSend()"></td>
+			</tr>
+			
+		</table>
+	</form>
+
+</body>
+</html>

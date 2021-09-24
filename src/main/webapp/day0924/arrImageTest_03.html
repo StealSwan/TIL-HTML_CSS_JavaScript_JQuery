@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Insert title here</title>
+</head>
+<body>
+
+<script type="text/javascript">
+
+	var tag1="<h2>Hello JS H2!!</h2>";
+	document.write(tag1);
+	
+
+	//Q. b태그로 1~10까지 가로로 출력
+	for(i=1; i<11; i++){
+		document.write("<b>"+i+"</b>&nbsp&nbsp");
+	}
+	
+	document.write("<br><br>");
+	
+	
+	//이미지 배열출력
+	for(var i=1; i<10; i++){
+		var f="<img src='../image/0"+i+".png' width='100'>";
+		document.write(f);
+	}
+	
+	
+	//배열 선언
+	var arr=["떡국", "떢볶이", "삼겹살", "피자", "후라이드치킨"];
+	for(var i=0; i<arr.length; i++){
+		var img = "<img src='../image/" + i + ".jpg' width='100'>"
+		document.write(img+"&nbsp;&nbsp;");
+	}
+	
+</script>
+
+</body>
+</html>

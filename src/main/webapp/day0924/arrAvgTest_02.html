@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Insert title here</title>
+
+<script type="text/javascript">
+
+	function testAvg(arrData){
+
+		var sum=0;
+		
+		for(var i=0; i<arrData.length; i++){
+			//프롬프트 창 안에도 배열 생성 가능 & 디폴트 값이 0
+			sum+=Number(prompt(arrData[i]+"점수는?","0"));
+		}
+		
+		var avg=sum/arrData.length;
+		return avg;
+	}
+	
+	var arrSubject = ["JAVA","JSP","ORACLE", "SPRING", "JAVASCRIPT"];
+	var result = testAvg(arrSubject);
+
+	document.write("평균점수는"+result+"점 입니다");
+</script>
+
+</head>
+<body>
+
+</body>
+</html>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="EUC-KR">
+<title>Insert title here</title>
+</head>
+<body>
+
+	<script type="text/javascript">
+	
+		var colors=["red", "blue", "yellow", "cyan", "gray", "magenta"];
+		
+		//Q. h1 태그로 위의 문자열을 해당색으로 출력(red라는 문자열을 레드색으로)
+		for(i=0; i<colors.length; i++){
+			document.write("<h1><font color='"+colors[i]+"'>"+colors[i]+"</font></h1>");
+		}
+		
+	</script>
+	
+	<hr>
+	
+	<script type="text/javascript">
+	
+		var flowers = new Array();
+		
+		//메서드를 통한 추가 삭제 가능
+		//push는 배열 마지막 요소로 추가하는 기능
+		flowers.push("장미꽃");
+		flowers.push("후리지아");
+		flowers.push("수국");
+		flowers.push("안개꽃");
+		flowers.push("제라늄");
+		flowers.push("백합");
+		console.log(flowers);
+		
+		//h1으로 출력
+		for(var i=0; i<flowers.length; i++){
+			document.write("<h1>"+flowers[i]+"</h1>");
+		}
+		
+		//pop 마지막 배열값을 제거
+		flowers.pop();
+		console.log(flowers);
+		
+		//배열의 첫번째 요소제거
+		flowers.shift();
+		console.log(flowers);
+
+		//h3으로 출력
+		for(var i=0; i<flowers.length; i++){
+			document.write("<h3>"+flowers[i]+"</h3>");
+		}
+
+		
+	</script>
+
+</body>
+</html>

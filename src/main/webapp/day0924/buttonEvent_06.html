@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Insert title here</title>
+<style type="text/css">
+
+	div {
+		position: relative;
+		width: 100px;
+		height: 100px;
+		background-color: orange;
+	}
+
+</style>
+
+<script type="text/javascript">
+
+	var x = 100;
+	var intervalId;
+	
+	window.onload=function(){
+		//2초뒤에 한번호출
+		setTimeout('init()',2000);
+		
+		//0.5초마다 주기적으로 호출
+		intervalId=setInterval('move()',500);
+	}
+	
+	
+	//원위치
+	function initPos(){
+		box.style.left='100px';
+		x=100;
+	}
+	
+	
+	//멈춤
+	function stopPos(){
+		
+		//타이머멈춤
+		clearInterval(intervalId);
+		
+		box.style.left='100px';
+		x=100;
+		alert("원위치후 타이머 멈춤")
+	}	
+	
+	
+	function init(){
+		console.log('init호출');
+/* 		box.style.left=x+"px";
+		box.style.top='100px'; */
+		
+		box.style.background='pink';
+	}
+	
+	
+	function move(){
+		console.log('move호출');
+		x+=10;
+		box.style.left=x+"px";
+	}
+	
+	
+
+	//이미지 출력은 항상 이런식임을 명심
+	function imgWrite(){
+		img1.src='../image/01.png';
+		img2.src='../image/02.png';
+	}
+
+</script>
+
+
+</head>
+<body>
+
+	<div id="box"></div>
+
+	<hr>
+
+	<input type="button" value="원위치" onclick="initPos()">
+	<input type="button" value="멈춤" onclick="stopPos()">
+	<input type="button" value="이미지 출력" onclick="imgWrite()">
+
+	<br>
+	
+	<img alt="" src="" name="img1">
+	<img alt="" src="" name="img2">
+
+</body>
+</html>
