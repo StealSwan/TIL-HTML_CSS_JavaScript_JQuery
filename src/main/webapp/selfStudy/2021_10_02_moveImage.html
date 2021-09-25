@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Insert title here</title>
+
+<!-- CSS -->
+<style type="text/css">
+
+	div {
+		position: relative;
+		width: 100px;
+		height: 100px;
+		background-color: orange;
+	}
+
+</style>
+
+
+<!-- 자바 스크립트 -->
+<script type="text/javascript">
+
+	/* div 기본 위치 변수 */
+	var x = 100;
+	/* 반복되는 시간 설정 변수 */
+	var intervalId;
+	
+
+	/* 프로그램 실행시 바로 발동되는 함수 */
+	window.onload=function (){
+		/* 2초뒤에 색변환 로직 */
+		/* 함수에 따옴표 붙일것!!! - 안그러면 밀리 세컨드를 인식하지 못함*/
+		setTimeout("colorChange()",2000);
+		
+		/* 0.5초마다 자동이동 */
+		setInterval(autoMove(),500);
+	}
+
+	
+	/* 시작되고 색변환 함수 파츠 */
+	function colorChange(){
+		/* box 스타일-백그라운드 컬러 */
+		box.style.background="pink";
+	}
+
+	
+	/* 시작되고 자동이동 함수 파츠 */	
+	function autoMove(){
+		/* x값 10씩 변동 */
+		x+=10;
+		
+		/* box 위치 변경 */
+		box.style.left=x+"px";
+	}
+	
+	
+	/* 원위치 */
+	function initPos(){
+		
+	}
+
+	
+	/* 멈춤 */
+	function stopPos(){
+		
+	}
+	
+	
+	/* 이미지 출력 */
+	function imgWrite(){
+		img1.src="../image/01.png";
+		img2.src="../image/02.png";
+	}
+
+
+</script>
+
+</head>
+<body>
+
+	<!-- 움직이는 상자 출력 -->
+	<div id="box"></div>
+
+	<hr>
+	
+	<!-- 버튼 3개 -->
+	<input type="button" name="position" value="원위치" onclick="initPos()">
+	<input type="button" name="stop" value="멈춤" onclick="stopPos()">
+	<input type="button" name="img" value="이미지 출력" onclick="imgWrite()">
+	
+	<br>
+	
+	<img alt="" src="" name="img1">
+	<img alt="" src="" name="img2">
+
+</body>
+</html>

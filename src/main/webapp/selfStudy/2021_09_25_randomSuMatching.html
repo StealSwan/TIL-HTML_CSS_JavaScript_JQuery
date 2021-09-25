@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Select Random Number</title>
+
+<!-- css -->
+<style type="text/css">
+
+	#out{
+		position: absolute;
+		top: 50px;
+		border: 1px	solid gray;
+		width: 300px;
+		height: 200px;
+		/* 패딩과 마진 차이 명심하기 */
+		padding-left: 10px;
+		background-color: #ffcc;
+		font-size: 11pt;
+	}
+
+</style>
+
+
+<!-- 자바 스크립트 -->
+<script type="text/javascript">
+
+	/* 랜럼수 변수와 맞춘 횟수 카운트용 변수 생성 */
+	var rnd;
+	var cnt=0;
+	
+	
+	/* 창이 실행되자마자 난수 생성하는 함수 설정 */
+	window.onload=function(){
+		rnd=parseInt(Math.random()*100)+1;
+	}
+	
+	
+	/* Enter키 입력을 받아 이미지 출력할 함수 생성 */
+	function check(su){				
+		
+		/* 숫자를 이미지로 변환해 출력하기 */
+		if(su<10){
+			/* 같은 이름의 img값에 순서를 설정 - 거기에 src 값 변경 */
+			/* 100의 자리와 10의 자리는 공백 + 1의 자리 src값 변경*/
+			img[0].src="";
+			img[1].src="";
+			img[2].src="../num/"+su+".gif";
+		} else if(su<100){
+			img[0].src="";
+			img[1].src="../num/"+parseInt(su/10)+".gif";
+			img[2].src="../num/"+(su%10)+".gif";
+		} else if(su==100){
+			img[0].src="../num/"+1+".gif";
+			img[1].src="../num/"+0+".gif";
+			img[2].src="../num/"+0+".gif";			
+		} else{
+			/* 숫자가 아닌 값을 입력했을 경우 */
+			alert("숫자를 입력해주세요");
+			/* Enter로 값 입력하면 빈 공백 초기화 */
+			frm.num.value='';
+			/* 커서 가져다놓기 */
+			frm.num.focus();
+			
+			/* 밑의 cnt값 증가안하고 함수 종료 - cnt는 증가한 상태*/
+			return false;
+		}
+		
+		
+		/* 공백체크 로직 */
+		if(su==""){
+			/* 빈칸은 null이 아니라 ""로 체크 */
+			alert("값을 입력해주세요");
+			
+			/* cnt값 증가안하고 초기화 - cnt값은 유지 */
+			return false;			
+		}
+		
+		
+		/* 입력한 숫자가 정답과 얼마나 먼지 비교 출력 + 정답시 이미지 + 기회 소진시 이미지 */
+		/* 매 회차마다 cnt 증가 */
+		cnt++
+		
+		/* 난수와 입력값 비교 */
+		if(su>rnd){
+			/* out은 출력 결과가 나오는 form */
+			out.innerHTML+= cnt+ ": " +su+ "보다 작습니다<br>";
+		} else if(su<rnd){
+			out.innerHTML+= cnt+ ": " +su+ "보다 큽니다<br>";
+		} else {
+			out.innerHTML+= "축하합니다! 정답입니다!";
+			/* 정답이미지 출력 */
+			img[0].src="";
+			img[1].src="";
+			img[2].src="../image/03.png";
+			
+			/* 맞추면 끝! */
+			return false;
+		}
+		
+		
+		/* 회수 초과에 관한 조건문 10회 */
+		/* 딱 cnt값이 10번이 될때 */
+		/* !!! cnt값이 딱 10이 되었을 때, 정답을 맞출 경우 맨 위에 return문이 있기에 여기까지 오지 않음 !!! */
+		if(cnt>=10){
+			out.innerHTML="기회가 모두 소진되었습니다... <br><br>정답은 " + rnd + "였습니다!";
+			img[0].src="";
+			img[1].src="";
+			img[2].src="../image/10.png";
+			
+			/* 맞춰도 끝! */
+			return false;
+		}
+		
+		
+		/* Enter로 값 입력하면 빈 공백 초기화 */
+		frm.num.value='';
+		/* 커서 가져다놓기 */
+		frm.num.focus();
+	}
+	
+	
+</script>
+
+</head>
+<body>
+
+	<!-- 입력값 전달은 폼 단위 -->
+	<form action="" name="frm" onsubmit="return false">
+		<b>숫자입력: </b>
+		<!-- 엔터키 입력시 함수를 호출 & 입력란 생성-->
+		<input type="text" name="num" size="5" onkeypress="if(event.keyCode==13) check(value)">
+	</form>
+	
+	
+	<!-- 결과 출력부분 -->
+	<div id="out"></div>
+	
+	
+	<!-- 이미지 출력부분 -->
+	<!-- top과 left에서 얼마나 떨어질지 -->
+	<div style="position: absolute; top: 80px; left: 350px;">
+		<!--  100의 자리 + 10의자리 + 1의자리 -->
+		<img alt="" src="" name="img">
+		<img alt="" src="" name="img">
+		<img alt="" src="" name="img">
+	</div>
+
+</body>
+</html>
