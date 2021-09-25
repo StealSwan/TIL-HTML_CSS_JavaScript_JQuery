@@ -24,7 +24,11 @@
 <!-- 자바스크립트 -->
 <script type="text/javascript">
 
-	
+	function dataOpen(){
+		/* window.open 함수의 가운데는 name */
+		/* 마지막은 ''하나로 width와 height를 묶어서 설정한다 */
+		window.open('2021_09_26_dataSend.html','name', 'width=300, height=200');
+	}
 
 </script>
 
@@ -52,7 +56,7 @@
 			
 			<tr align="center">
 				<!-- 버튼의 이름은 value 값으로 설정 -->
-				<td colspan="2"><input type="button" value="데이터 입력" onclick="dataopen()"></td>
+				<td colspan="2"><input type="button" value="데이터 입력" onclick="dataOpen()"></td>
 			</tr>			
 		</table>
 	</form>

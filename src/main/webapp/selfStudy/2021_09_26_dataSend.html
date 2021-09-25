@@ -1,10 +1,70 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="EUC-KR">
+<meta charset="utf-8">
 <title>Insert title here</title>
+
+<!-- CSS -->
+<style type="text/css">
+
+	/* 가끔 데이터 입력전에 오류 표시되는 경우가 있기에 입력해보고 결정하기 */
+	/* css에서는 =가 아니라 :로 표현 */
+	/* !!!css에서는 반드시 단위를 붙인다!!! */
+	th{
+		width: 100px;
+	}
+	
+	td{
+		width: 200px;
+	}
+
+</style>
+
+
+<!-- 자바스크립트 -->
+<script type="text/javascript">
+
+	function dataSend(){
+		/* 오픈된 창을 opener 라고함 */
+		opener.frm.name.value=frm.name.value;
+		opener.frm.addr.value=frm.addr.value;
+		opener.frm.hp.value=frm.hp.value;
+		
+		/* 버튼 누를시 함수 종료 */
+		window.close();
+	}
+
+</script>
+
 </head>
 <body>
+	
+	<!-- 폼 전송을 할 것 -->
+	<form action="" name="frm" onsubmit="return false">
+		<table>
+			<tr>
+				<th>이름</th>
+				<!-- 인풋 테그는 table 아래 출력되기에 td로 감싸주어야함 -->
+				<!-- required는 마우스 올려놓으면 반드시 입력해야하는 사항임을 명시해줌 -->
+				<td><input type=text name="name" required="required"></td>
+			</tr>
+			
+			<tr>
+				<th>주소</th>
+				<td><input type=text name="addr"></td>
+			</tr>
+
+			<tr>
+				<th>연락처</th>
+				<td><input type=text name="hp"></td>
+			</tr>
+			
+			<tr align="center">
+				<!-- 버튼의 이름은 value 값으로 설정 -->
+				<td colspan="2"><input type="button" value="데이터 전송" onclick="dataSend()"></td>
+			</tr>			
+		</table>
+	</form>
 
 </body>
 </html>
