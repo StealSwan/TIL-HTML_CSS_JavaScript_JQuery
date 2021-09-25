@@ -31,9 +31,10 @@
 		/* 2초뒤에 색변환 로직 */
 		/* 함수에 따옴표 붙일것!!! - 안그러면 밀리 세컨드를 인식하지 못함*/
 		setTimeout("colorChange()",2000);
-		
+
 		/* 0.5초마다 자동이동 */
-		setInterval(autoMove(),500);
+		/* 멈출때를 대비해 변수화 */
+		intervalId = setInterval("autoMove()",500);
 	}
 
 	
@@ -56,13 +57,21 @@
 	
 	/* 원위치 */
 	function initPos(){
-		
+		/* div 위치조정 */
+		box.style.left='100px';
+
+		/* 증가된 x값 초기화 */
+		x= 100;
 	}
 
 	
 	/* 멈춤 */
 	function stopPos(){
+		/* 타이머 멈추게하기 */
+		/* clearInterval(인터벌 변수) */
+		clearInterval(intervalId);
 		
+		alert("멈춤!!!");
 	}
 	
 	
