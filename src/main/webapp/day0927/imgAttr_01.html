@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Insert title here</title>
+<style type="text/css">
+
+	.test{
+		width: 100px;
+	}
+	
+	.result{
+		width: 500px;
+		height: 300px;
+	}
+	
+	#img_div {
+		position: absolute;
+		left: 500px;
+		top: 100px;
+		/* 링크 기능있는 걸 알수있도록 커서모양을 바꿔줌 */
+		cursor: pointer;
+	}
+
+	#result_div>img{
+		position: absolute;
+		left: 350px;
+		top: 300px;
+		width: 600px;
+		height: 350px;
+	}
+
+</style>
+
+<script type="text/javascript">
+
+	window.onload=function(){
+		//1.id로 객체 읽어오기
+		var img = [
+		document.getElementById("img1"),
+		document.getElementById("img2"),
+		document.getElementById("img3"),
+		document.getElementById("img4")
+		];
+	
+		
+/* 		//2.이미지 각 개체마다 onclick 기능 부여
+		img1.onclick=function(){
+			
+			//img5 객체에 src속성값을 각각의 객체 src를 익어와서 변경한다
+			//setAttribute는 선택한 요소 element의 속성값을 정한다
+			img5.setAttribute("src", img1.getAttribute("src"));
+		}
+		
+		
+		img2.onclick=function(){			
+			img5.setAttribute("src", img2.getAttribute("src"));
+		}
+
+		img3.onclick=function(){			
+			img5.setAttribute("src", img3.getAttribute("src"));
+		}
+
+		img4.onclick=function(){			
+			img5.setAttribute("src", img4.getAttribute("src"));
+		}
+
+	} */
+	
+	//배열로 처리
+	for(var i=0; i<img.length; i++){
+		img[i].onclick=function(){
+			img5.setAttribute("src", this.getAttribute("src"));
+		}
+	}
+}
+
+</script>
+
+</head>
+<body>
+
+	<div id="img_div">
+		<img alt="" src="../image/01.png" class="test" id="img1">
+		<img alt="" src="../image/02.png" class="test" id="img2">
+		<img alt="" src="../image/03.png" class="test" id="img3">
+		<img alt="" src="../image/04.png" class="test" id="img4">		
+	</div>
+	
+	<div id="result_div">
+		<img alt="" src="../image/01.png" class="result" id="img5">		
+	</div>
+
+</body>
+</html>

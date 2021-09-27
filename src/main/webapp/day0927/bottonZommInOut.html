@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="EUC-KR">
+<title>Insert title here</title>
+<style type="text/css">
+
+	@import url('https://fonts.googleapis.com/css2?family=Nanum+Pen+Script&display=swap');
+
+	#out{
+		font-family: 'Nanum Pen Script', cursive;
+		padding: 20px 20px;
+		width: 500px;
+		margin-top: 50px;
+		border: 0px solid black;
+	}
+
+</style>
+
+
+<script type="text/javascript">
+
+	// 버튼이벤트_3씩 감소/증가
+	//8보다 작아지면 경고메시지: 더이상 줄일 수 없습니다 - 후에 종료
+	//60보다 커지면 마찬가지로 경고후 종료
+	//버튼 클릭시마다 현재 글꼴사이즈를 fsize에 저장
+	window.onload=function(){
+		var fsize= document.getElementById("fsize");
+		var out=document.getElementById("out");
+		
+		fsize.innerHTML="현재 글꼴사이즈는 40px 입니다";
+		
+		//점점작게 이벤트
+		document.getElementById("btn1").onclick=function(){
+			
+			var outsize=parseInt(out.style.fontSize);
+			//alert(outsize);
+			
+			outsize-=3;
+			
+			if(outsize<8){
+				alert("더이상 줄일수 없습니다");
+				return; //메서드 종료
+			}
+			
+			out.style.fontSize=outsize+"px";
+			fsize.innerHTML="현재 글꼴 크기는 " + outsize + "px 입니다";
+		}
+		
+		
+		//점점크게 이벤트
+		document.getElementById("btn2").onclick=function(){
+			
+			//반드시 형변환!!
+			var outsize= parseInt(out.style.fontSize);
+			
+			outsize+=3;
+			
+			if(outsize>60){
+				alert("더이상 늘릴수 없습니다");
+				return;
+			}
+			
+			out.style.fontSize=outsize+"px";
+			fsize.innerHTML="현재 글꼴 크기는 " + outsize + "px 입니다";
+		}
+		
+		
+		//글자색 변경
+		//선택된 것이 바뀔 때 함수 실행
+		document.getElementById("color1").onchange=function(){
+			alert(this.value);
+			out.style.color=this.value;
+		}
+		
+		
+		//배경색 변경
+		document.getElementById("color2").onchange=function(){
+			alert(this.value);
+			out.style.backgroundColor=this.value;
+		}
+		
+		
+		//폰트 굵기변경
+		document.getElementById("selBorder").onchange=function(){
+			alert(this.value);
+			out.style.borderWidth=this.value+"px";
+		}		
+	}
+	
+</script>
+
+
+</head>
+<body>
+
+	<button type="button" id="btn1">점점 작게</button>
+	<button type="button" id="btn2">점점 크게</button>
+
+	<hr>
+	
+	<div id="fsize"></div>
+	
+	<b>글자색선택: </b>
+	<input type="color" value="#ffccff" id="color1"><br>
+
+	<b>배경색선택: </b>
+	<input type="color" value="#ccffff" id="color2"><br>
+
+	<b>테두리선 굵기 선택</b>
+	<select id="selBorder">
+		<!-- value가 있을땐 value값을 우선으로 읽고 없는 경우는 option 사이값을 읽는다 -->
+		<option value=0>없음</option>
+		<option>1</option>
+		<option>3</option>
+		<option>5</option>
+		<option>7</option>
+	</select>
+
+	<div id="out" style="font-size: 40px">오늘은 즐거운 월요일입니다</div>
+
+</body>
+</html>

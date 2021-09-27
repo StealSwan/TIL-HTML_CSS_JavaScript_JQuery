@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Insert title here</title>
+<style type="text/css">
+
+	img {
+		width: 100px;
+		border: 2px groove pink;
+	}
+	
+	.btn{
+		width: 120px;
+		height: 30px;
+		fort-size: 12pt;
+		background: green;
+		color: white;
+		border-radius: 30px; 
+	}
+
+</style>
+
+<script type="text/javascript">
+
+	//교수님 답안
+	//시작하자마자 요소값 읽어와야 함
+/* 	window.onload=function(){
+		//id로 해당 요소값 읽어오기
+		btn1=document.getElementById("btn1");
+		btn2=document.getElementById("btn2");
+		btn3=document.getElementById("btn3");
+		
+		img1=document.getElementById("img1");
+		img2=document.getElementById("img2");
+		
+		btn1.onclick=function(){
+			
+			//img1.getAtrribute: 속성값 읽어오기
+			
+			img1.setAttribute("src","/JavaScriptProject/image/03.png");
+			img2.setAttribute("src","../image/04.png");
+			
+			//이미지 너비 바꾸기
+			myimg1.style.width="150px";
+		}
+		
+		btn2.onclick=function(){
+			
+			//img1.getAtrribute: 속성값 읽어오기
+			
+			img1.setAttribute("src","/JavaScriptProject/image/05.png");
+			img2.setAttribute("src","../image/06.png");
+			
+		}
+		
+		//원래대로 버튼
+		btn3.onclick=function(){
+			img1.setAttribute("src","/JavaScriptProject/image/01.png")
+			img2.setAttribute("src","../image/02.png")	
+		}
+	} */
+	
+
+	//내 답안
+	//setAttribute로 속성값 주기
+	function change1(){
+		img1.setAttribute("src","/JavaScriptProject/image/03.png")
+	}
+	
+	function change2(){
+		img2.setAttribute("src","../image/04.png")
+	}
+	
+	function reImg(){
+		img1.setAttribute("src","/JavaScriptProject/image/01.png")
+		img2.setAttribute("src","../image/02.png")		
+	}
+
+
+</script>
+
+</head>
+<body>
+
+	<h3>절대주소를 이용한 이미지</h3>
+	<img alt="" src="/JavaScriptProject/image/01.png" id="img1">
+	
+	<h3>상대주소를 이용한 이미지</h3>
+	<img alt="" src="../image/02.png" id="img2">
+
+	<hr>
+
+	<input type="button" value="변경1" id="btn1" class="btn" onclick="change1()">
+	<input type="button" value="변경2" id="btn2" class="btn" onclick="change2()">
+	<input type="button" value="원래대로" id="btn3" class="btn" onclick="reImg()">
+
+</body>
+</html>

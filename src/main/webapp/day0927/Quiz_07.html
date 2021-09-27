@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Insert title here</title>
+
+<style type="text/css">
+
+	@import url('https://fonts.googleapis.com/css2?family=Nanum+Pen+Script&display=swap');
+
+	table{
+		border: 2px solid green;
+		width: 500px;
+		border-collapse: collapse;
+	}
+	
+	tr, th, td{
+		border: 1px solid gray;
+		font-size: 10pt;
+		height: 35px;
+	}
+	
+	th{
+		background-color: orange;
+		width: 100px;
+	}
+	
+	input{
+		margin-left: 10px;
+	}
+	
+	div {
+		font-family: 'Nanum Pen Script', cursive;
+		font-size: 25px;
+		position: absolute;
+		left: 10px;
+		top: 330px;
+		width: 500px;
+		height: 200px;
+		border: 3px solid blue;
+		padding: 20 10;
+	}
+
+</style>
+
+
+<script type="text/javascript">
+
+	//출력 기능
+	/* !!! 함수를 onclick으로 호출할 경우엔 document로 값을 가지고 올 필요가 없다 !!! */
+	/* onclick을 안할 경우, body와 접점이 없기에 필요한 것이다 */
+	function disp(){
+		
+		result.innerHTML+= "이름: " + frm.name.value + "<br>";
+		result.innerHTML+= "비밀번호: " + frm.pw.value + "<br>";
+		result.innerHTML+= "혈액형: " + frm.blood.value + "<br>";
+		result.innerHTML+= "생년월일: " + frm.date.value + "<br>";
+		
+		
+		//라디오 박스가 가장 어려움!!!
+		/* flag 값 필요!!! */
+		var baseMent = "취미: "
+		var flag = false;
+		
+		/* 반복문에 var 붙이는 거 까먹지 않기!!! */
+		for(var i=0; i<frm.hobby.length; i++){
+			if(frm.hobby[i].checked){
+				flag = true;
+				baseMent+= "["+ frm.hobby[i].value + "] ";
+			}
+		}
+		
+		if(!flag){
+			baseMent="취미를 선택하지 않았습니다";
+		} else{
+			baseMent += "입니다";
+		}
+
+		result.innerHTML+= baseMent;
+		
+	}
+	
+	
+	//초기화 버튼
+	/* !!! 함수이름을 reset으로하면 예약어라 먹지를 않음!!! */
+	function re(){
+		result.innerHTML= "";
+	}
+
+</script>
+
+</head>
+<body>
+
+	<!-- 결과물 출력 -->
+	<div id="result"></div>
+
+	<form action="" name=frm>
+		<table>
+			<caption><h4>폼 태그들 연습</h4></caption>
+				<!-- !!!주의!!! 전부 한 셀 안에 나열하는 것임!!! -->
+				<tr>
+					<th>이름</th>
+					<td><input type="text" name="name"></td>
+				</tr>
+				
+				<tr>
+					<th>비밀번호</th>
+					<td><input type="password" name="pw"></td>
+				</tr>
+				
+				<tr>
+					<!-- th로 하면 버튼명도 전부 진하게됨 -->
+					<th>혈액형</th>
+					<td>
+					<input type="radio" name="blood" value="A형">A형 &nbsp;&nbsp;
+					<input type="radio" name="blood" value="B형">B형 &nbsp;&nbsp;
+					<input type="radio" name="blood" value="AB형">AB형 &nbsp;&nbsp;
+					<input type="radio" name="blood" value="O형">O형 &nbsp;&nbsp;
+					</td>
+				</tr>
+				
+				<tr>
+					<th>생년월일</th>
+					<td><input type="date" name="date"></td>
+				</tr>																				
+
+				<tr>
+					<th>취미</th>
+					<td>
+					<input type="checkbox" name="hobby" value="낚시">낚시 &nbsp;&nbsp;
+					<input type="checkbox" name="hobby" value="게임">게임 &nbsp;&nbsp;
+					<input type="checkbox" name="hobby" value="여행">여행 &nbsp;&nbsp;
+					<input type="checkbox" name="hobby" value="영화감상"> 영화감상 &nbsp;&nbsp;
+					</td>
+				</tr>
+				
+				<tr>
+					<td align="center" colspan=2>
+					<!-- 한칸에 몰아서 넣기 -->
+					<input type="button" value="결과출력" id="btnResult" onclick="disp()">
+					<!-- reset 버튼의 타입은 reset으로 지정 -->
+					<input type="reset" value="초기화" id="reset" onclick="re()">
+					</td>
+				</tr>
+		</table>
+	</form>
+
+</body>
+</html>

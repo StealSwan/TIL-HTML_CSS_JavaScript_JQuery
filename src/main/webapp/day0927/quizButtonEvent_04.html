@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Insert title here</title>
+<style type="text/css">
+
+	button {
+		width: 100px;
+		height: 30px;
+		background-color: #2e8b45;
+		color: white;
+		border-radius: 30px;
+		margin-left: 10px
+	}
+	
+	div img{
+		/* 아무리커도 130 넘지 않게 */
+		max-width: 130px;
+	}
+
+</style>
+
+<script type="text/javascript">
+
+	function btn1(){
+		if(confirm("shop 이미지를 출력하시겠습니까?")){
+			img1.src="../image/candle_on.jpg";			
+		}
+	}
+
+	function btn2(){
+		if(confirm("연예인 이미지를 출력하시겠습니까?")){
+			img2.src="../star/jeonjeehyeon.jpg";
+		}
+	}
+
+	function btn3(){
+		/* 이 방법은 document.getElementById로 값을 가지고 온 뒤에 사용 가능 */
+		/* result.img3.setAttribute(src, "../image/03.png"); */
+		if(confirm("미니언즈 이미지를 출력하시겠습니까?")){
+			img3.src="../image/03.png";		
+		}
+	}
+
+</script>
+
+</head>
+<body>
+
+	<!-- Q. 각각의 버튼 클릭시 해당하는 사진을 출력할것!! 이미지는 지워지지 않고 누적 -->
+	<!-- 매번 출력전 상품을 출력할까요? confirm받고 확인 버튼 누를 때만 이미지 출력 -->
+	
+	<button type="button" onclick="btn1()">shop</button>
+	<button type="button" onclick="btn2()">star</button>
+	<button type="button" onclick="btn3()">minions</button>
+
+	<hr>
+	<div id="result">	
+		<img alt="" src="" name="img1">
+		<img alt="" src="" name="img2">
+		<img alt="" src="" name="img3">
+	</div>	
+
+</body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Insert title here</title>
+
+<script type="text/javascript">
+
+	function make(){
+		alert("스크립트 함수 호출");
+	}
+	
+	function gofile(url){
+		location.href=url;
+	}
+
+</script>
+
+</head>
+<body>
+
+	<!-- 1. 일반적으로 a태그는 파일명을 url을, 버튼은 자바스크립트 함수를 호출 - 반대도 가능 -->
+	<input type="button" value="자바스크립트 함수 호출" onclick="make()">
+	<br><br>
+
+	<!-- 2. javascript의 함수(location.href)를 이용해서 파일을 이동 -->
+	<input type="button" value="파일호출(기존 스크립트 함수 직접 입력)" onclick="location.href='imgAttr_01.html'">
+	<br><br>
+	
+	<!-- 3. script 함수에 url을 변수로 넘겨 location.href 실행해도 됨 -->
+	<input type="button" value="파일호출(스크립트를 새로 만들어 실행)" onclick="gofile('../day0924/buttonEvent_06.html')">
+	<br>
+	<hr>
+	
+	<!-- 4. javascript 함수 호출가능 -->
+	<a href="javascript:make()">자바스크립트 함수 호출</a>
+	<br><br>
+	<a href="imgAttr_01.html" target="_blank">파일호출</a>
+
+</body>
+</html>
