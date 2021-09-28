@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Insert title here</title>
+<style type="text/css">
+
+	#img{
+		position: absolute;
+	}
+
+</style>
+
+<script type="text/javascript">
+
+	var img;
+	var xpos = 500;
+	var ypos = 300;
+	
+	window.onload=function(){
+
+		/* 요소값 불러와서 위치 설정해주기 */
+		/* px 붙이는 거 주의 */
+		img = document.getElementById("img");
+		img.style.top = ypos + "px";
+		img.style.left = xpos + "px";
+		
+		//키보드 입력 이벤트
+		window.onkeydown= function(e){
+			
+			switch(e.keyCode){
+			//상
+			case 38:
+				ypos -=10;
+				img.style.top=ypos +"px";
+				break;
+			//하
+			case 40:
+				ypos +=10;
+				img.style.top=ypos +"px";
+				break;
+			//왼	
+			case 37:
+				xpos -=10;
+				img.style.left=xpos +"px";
+				break;
+			//우	
+			case 39:
+				xpos +=10;
+				img.style.left=xpos +"px";
+				break;
+			//엔터	
+			case 13:
+				xpos = 500;
+				ypos = 300;				
+				img.style.top = ypos + "px";
+				img.style.left = xpos + "px";
+				break;
+			}
+		}
+	}
+	
+</script>
+
+</head>
+<body>
+
+	<img alt="" src="../image/06.png" id="img">
+
+</body>
+</html>

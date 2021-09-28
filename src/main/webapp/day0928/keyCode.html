@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+
+<style type="text/css">
+
+	#img{
+		position: absolute;
+	}
+	
+	#btnGo{
+		margin-left: 400px;
+		width: 150px;
+		font-size: 20pt;
+		position: relative;
+		top: 200px;
+	}
+	
+	#btnStop{
+		margin-left: 10px;
+		width: 150px;
+		font-size: 20pt;
+		position: relative;
+		top: 200px;
+	}
+
+</style>
+
+<script type="text/javascript">
+
+	var img;
+	var xpos=0;
+	var ms=100;
+	var inter;
+	
+	window.onload=function(){
+		
+		img = document.getElementById("img");
+		
+		//Go 버튼
+		document.getElementById("btnGo").onclick = function(){
+			
+			inter = setInterval(function() {
+				img.style.left = xpos + "px";
+				xpos+=10;
+			}, ms);
+		}
+		
+		//Stop 버튼
+		document.getElementById("btnStop").onclick = function(){
+			/* setInterval 멈춤 */
+			clearInterval(inter);
+		}
+		
+		//키보드의 아스키 코드값 확인
+		window.onkeyup==function(e){
+			
+			//4방향키와 엔터의 아스키 코드값
+			console(e.keyCode);
+			//상: 38 + 하: 40 + 좌: 37 + 우: 39 + 엔터: 13
+		}
+	}
+
+</script>
+
+<title>Insert title here</title>
+</head>
+<body>
+
+	<img alt="" src="../image/09.png" id="img">
+	
+	<br><br>
+	
+	<button type="button" id="btnGo">go!!</button>
+	<button type="button" id="btnStop">Stop!!</button>
+	
+</body>
+</html>

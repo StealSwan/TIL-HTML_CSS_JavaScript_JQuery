@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Insert title here</title>
+<style type="text/css">
+
+	.out{
+ 	margin-top: 30px;
+ 	margin-left: 330px;
+ 
+ 	}
+ 
+	 #out>.lotto{
+	 	margin-bottom:20px;
+		float:left;
+		margin-left: 20px;
+		margin-top: 30px;
+		border: solid 3px #c71585;
+		background-color: #eeffee; /*배경색*/
+		border-radius: 100px; /*모서리 둥글게*/
+		width: 100px;
+		height: 100px;
+		line-height: 100px;
+		font-size: 3em;
+		font-family: 'Comic Sans MS';
+		text-align: center;
+		font-weight: bold;
+		color: orange;
+		box-shadow: 5px 5px 5px gray; /*x,y,blur,색상*/
+	 }
+	 
+	 #btn1{
+	 	position: relative;
+	 	left: 260px;
+	 	width: 150px;
+	 }
+
+	 #btn2{
+	 	position: relative;
+	 	left: 270px;
+	 	width: 150px;	 
+	 }
+
+	#result{
+		border: 1px solid gray;
+		width: 500px;
+		height: 150px;
+		position: relative;
+		left: 170px;
+		top: 20px;
+	}
+	
+	hr{
+		border: 0px;
+		height: 1px;
+		background-color: gold;
+	}
+
+</style>
+
+</head>
+<body>
+
+	<div id="out"></div>
+	
+	<br><br><br><br><br><br><br>
+	<hr>
+	<br>
+	
+	<button type="button" id="btn1">다른숫자 발생</button>
+	<button type="button" id="btn2">선택</button>
+	
+	<div id="result"></div>
+
+
+<!-- 자바스크립트 -->
+<!-- onload 바깥으로 속성값 출력이 있으면 몸통부분에 넣어주어야 한다 -->
+<script type="text/javascript">
+
+	//out의 요소값 구하기
+	var out = document.getElementById("out");
+	var result = document.getElementById("result");
+	
+	//미리 당첨번호 로또는 숫자 넣어주기
+	var lottowin = [12,35,8,23,45,5];
+	
+	//로또배열생성
+	var lotto= new Array(6);
+	
+	
+	//창을 켜도 나타나게 하기 위해 함수를 만들어 활용
+	/* 함수 선언후 1회 실행, 버튼 클릭시마다 함수 반복적으로 나타나게 하기 */
+	function popUp(){
+		//1~45사이 난수 구해서 배열에 넣기
+		for(var i=0; i<lotto.length; i++){
+			lotto[i]=parseInt(Math.random()*45)+1;
+			
+			//중복 숫자 방지
+			for(var j=0; j<i; j++){
+				if(lotto[j]==lotto[i]){
+					i--;
+					break;
+				}
+			}
+		}
+		
+		//정렬
+		for(var i=0; i<lotto.length; i++){
+			for(var j=i+1; j<lotto.length; j++){
+				if(lotto[i]>lotto[j]){
+					var temp = lotto[i];
+					lotto[i] = lotto[j];
+					lotto[j] = temp;
+				}
+			}
+		}
+		
+		//해당 내용 div에 출력
+		var s ="";
+		
+		for(var i=0; i< lotto.length; i++){
+			s+= "<div class='lotto'>" + lotto[i] + "</div>";
+		}
+		
+		out.innerHTML= s + "<br>";
+	}
+	
+	
+	/* 함수 1회 실행하여 기본적으로 팝업시키기 */
+	popUp();
+	
+	
+	//버튼이벤트..1~45사이 난수 구하기
+	document.getElementById("btn1").onclick=function(){
+		popUp();
+	}
+	
+	
+	//2번째 버튼 이벤트 - 선택
+	document.getElementById("btn2").onclick= function(){
+		
+		result.innerHTML = "";
+		result.style.fontWeight= "bold";
+		/* result div의 속성값 변경 */
+		result.setAttribute("align", "center");
+		result.innerHTML += "이번주 로또 정답은: " + "<br>";
+		
+		var stateMent = "";
+		
+		/* 반복문 출력 */
+		for(var i=0; i<lottowin.length; i++){
+			stateMent += "[" + lottowin[i] + "]	";
+		}
+
+		
+		/* 몇개 맞았나 새보기 */
+		var cnt = 0;
+		
+		for(var i=0; i<lotto.length; i++){
+			if(lottowin.includes(lotto[i])){
+				cnt++;
+			}
+		}
+		
+		result.innerHTML += stateMent + "<br><br>";
+		
+		result.innerHTML += "맞은개수: " + cnt + "개<br>";
+		if(cnt==6){
+			result.innerHTML += "대박! 다맞췄음!! 오늘 로또사는 날!!!";
+		} else if(cnt==5){
+			result.innerHTML += "2등입니다! 아쉬워요!";
+		} else if(cnt==4){
+			result.innerHTML += "3등입니다!";
+		} else{
+			result.innerHTML += "<font style='color: red'; size='30';>꽝!!!</font>";
+		}
+	}
+
+</script>
+
+</body>
+</html>
