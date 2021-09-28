@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Insert title here</title>
+
+<style type="text/css">
+
+	#photo{
+		position: absolute;
+		left: 500px;
+		top: 150px;
+		width: 400px;
+		height: 500px;
+		border: 5px groove gold;
+	}
+	
+	#btnRandom{
+		margin-left: 400px;
+		width: 100px;
+		height: 100px;
+	}
+
+</style>
+
+
+<script type="text/javascript">
+
+	window.onload=function(){
+		
+		//배열에 10개의 이미지를 넣는다
+		var imgarr=new Array();
+		
+		imgarr.push("../image/01.png");
+		imgarr.push("../image/02.png");
+		imgarr.push("../image/03.png");
+		imgarr.push("../image/04.png");
+		imgarr.push("../image/05.png");
+		imgarr.push("../image/06.png");
+		imgarr.push("../image/07.png");
+		imgarr.push("../image/08.png");
+		imgarr.push("../image/09.png");
+		imgarr.push("../image/10.png");
+
+		//photo요소값 얻기
+		var photo = document.getElementById("photo");
+
+		
+		//이미지버튼 이벤트
+		document.getElementById("btnRandom").onclick=function(){
+			//0~9까지의 난수값 얻기
+			var idx= parseInt(Math.random()*10);
+			
+			//photo의 속성변경(배열의 난수값 적용)..초기이미지
+			photo.setAttribute("src", imgarr[idx])
+		}
+		
+	}
+
+</script>
+
+</head>
+<body>
+
+	<input type="image" src="../image/01.png" id="btnRandom">
+
+	<marquee width="500" direction="left" behavior="slide">
+		<img alt="" src="../image/01.png" width="50">	
+		<b>왼쪽 버튼을 누르면 이미지가 바뀝니다</b>
+	</marquee>
+	
+	<img alt="" src="../image/candle_on.jpg" id=photo>
+
+</body>
+</html>

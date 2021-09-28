@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="EUC-KR">
+<title>Insert title here</title>
+<style type="text/css">
+
+	#time{
+		font-size: 2em;
+		margin-left: 100px;
+		font-weight: bold;
+		font-family: 'Comic Sans Ms';
+	}
+	
+	/* 초기 위치값 설정해야 나중에 위치 움직일 수 있음!! */
+	#img{
+		position: absolute;
+	}
+
+</style>
+
+<script type="text/javascript">
+
+	var xpos = 10;
+	var ypos =10;
+
+	window.onload=function(){
+		
+		writeTime();
+		
+		//1초마다 다시 시간 출력
+		setInterval(function() {
+			writeTime();
+		}, 1000);
+		
+		
+		//5초뒤에 딱 한번 이미지 위치 변경
+		setTimeout(function() {
+			
+			document.getElementById("img").style.left = xpos+ "px" ;
+			document.getElementById("img").style.top = ypos+ "px" ;
+		}, 5000);
+	}
+	
+	
+	function writeTime(){
+		var date=new Date();
+		var h = date.getHours();
+		var m = date.getMinutes();
+		var s = date.getSeconds();
+		
+		//시간 - 1자리 숫자일 경우, 0붙이기
+		var time = h+ ":" + (m<10? "0"+m:m) + ":" + (s<10? "0"+s:s);
+		
+		document.getElementById("time").innerHTML=time;
+	}
+
+</script>
+
+</head>
+<body>
+
+	<h2>setTimeout과 setInterval</h2>
+	<div id="time"></div>
+	<img alt="" src="../image/10.png" id="img">
+
+</body>
+</html>

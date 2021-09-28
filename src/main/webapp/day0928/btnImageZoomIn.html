@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Insert title here</title>
+</head>
+<body>
+
+	<button type="button" id="btn1">미니언즈1</button>
+	<button type="button" id="btn2">미니언즈2</button>
+	<button type="button" id="btn3">미니언즈3</button>
+
+	<br><br>
+	
+	<button type="button" id="btn4">점점작게</button>
+	<button type="button" id="btn5">점점크게</button>
+	
+	<hr>
+	
+	<img alt="" src="../image/06.png" width="300" id="img1" border="2">
+
+
+<!-- 자바스크립트 -->
+<script type="text/javascript">
+
+	var b1 = document.getElementById("btn1");
+	var b2 = document.getElementById("btn2");
+	var b3 = document.getElementById("btn3");
+	var b4 = document.getElementById("btn4");
+	var b5 = document.getElementById("btn5");
+
+	var img= document.getElementById("img1");
+	
+	
+	//버튼1 이벤트
+	b1.onclick=function(){
+		img.setAttribute("src", "../image/01.png");
+	}
+	
+	//버튼2 이벤트
+	b2.onclick=function(){
+		img.setAttribute("src", "../image/02.png");
+	}
+
+	//버튼3 이벤트
+	b3.onclick=function(){
+		img.setAttribute("src", "../image/03.png");
+	}
+	
+	//점점작게
+	b4.onclick=function(){
+		var w= img.getAttribute("width");
+		
+		w-=10;
+		img.setAttribute("width", w);
+	}
+	
+	//점점크게
+	b5.onclick=function(){
+		var w= parseInt(img.getAttribute("width"));
+		
+		w+=10;
+		img.setAttribute("width", w);
+	}
+
+</script>
+	
+</body>
+</html>
