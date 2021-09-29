@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="EUC-KR">
+<title>Insert title here</title>
+
+<style type="text/css">
+
+	body * {
+		font-size: 1.2em;
+	}
+	
+	#img1{
+		max-width: 300px;
+		position: absolute;
+		left: 600px;
+		top: 50px;
+		border: 10px solid pink;
+		border-radius: 30px;
+	}
+
+</style>
+
+<script type="text/javascript">
+
+	window.onload = function(){
+
+		var sel = document.getElementById("sel");
+		var img1 = document.getElementById("img1");
+		var rd = document.getElementsByName("rd");
+		
+		//select값 이미지 기본으로 설정
+		img1.setAttribute("src", "../image/01.png")
+		
+		//select 값 바뀔 때 이미지 변경
+		sel.onchange= function(){
+			img1.setAttribute("src", "../image/" + this.value + ".png");
+		}
+
+
+		//img1.style.border= "10px dotted pink";
+
+	}
+	
+	//radio
+	/* onclick function은 window.onload 바깥으로 빼야함!!! */
+	function borderCh(value){
+		img1.style.border= "10px " + value + " pink";
+	}
+	
+</script>
+
+</head>
+<body>
+
+		<img alt="" src="" id="img1">
+	
+		<h2>미니언을 선택하세요</h2>
+		<select id="sel">
+			<option value="01">1번</option>
+			<option value="02">2번</option>
+			<option value="03">3번</option>
+			<option value="04">4번</option>
+		</select>
+		
+		<br>
+		<br>
+		
+		<h2>선종류를 선택하세요</h2>
+			<input type="radio" name="rd" value="solid" onclick="borderCh(this.value)" checked="checked">solid &nbsp;
+			<input type="radio" name="rd" value="dotted" onclick="borderCh(this.value)">dotted &nbsp;
+			<input type="radio" name="rd" value="dashed" onclick="borderCh(this.value)">dashed &nbsp;
+			<input type="radio" name="rd" value="double" onclick="borderCh(this.value)">double &nbsp;
+			<input type="radio" name="rd" value="groove" onclick="borderCh(this.value)">groove &nbsp;
+			<input type="radio" name="rd" value="inset" onclick="borderCh(this.value)">inset &nbsp;
+</body>
+</html>

@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="EUC-KR">
+<title>canvas를 이용한 간단 그림판</title>
+<script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+	
+<style type="text/css">
+
+	#can{
+		border: 10px solid gold;
+		cursor: crosshair;
+	}
+
+	#clr{
+		margin-left: 300px;
+	}
+	
+	#clr div{
+		width: 30px;
+		height: 30px;
+		border: 1px solid black;
+		cursor: pointer;
+		float: left;
+		margin-left: 3px;
+	}
+	
+	#clear, #eraser{
+		text-decoration: none;
+		width: 130px;
+		height: 40px;
+		border: 2px solid green;
+		border-radius: 50px;
+		float: left;
+		line-height: 40px;
+		text-align: center;
+		margin-left: 20px;
+		cursor: pointer;
+		box-shadow: 5px 5px 3px gray;
+		font-weight: bold;
+	}
+
+</style>
+
+<script type="text/javascript">
+
+	window.onload=function(){
+		
+		var can= document.getElementById("can");
+		var ctx= can.getContext("2d");
+		var preX, preY;	//선그릴때 현재좌표 저장할 변수
+		var draw = false;	//마우스 움직일때 그리고 싶을때 true로 변경
+		
+		ctx.strokeStyle="black";
+		ctx.lineCap="round";
+		var idx=1;
+		
+		//이벤트
+		can.onmousedown=function(e){
+			
+			draw= true;
+			
+			//클릭한 곳에서 선이 시작..x,y좌표 저장
+			preX= e.pageX;
+			preY= e.pageY;
+		}
+		
+		can.onmousemove= function(e){
+			
+			if(draw==true){
+				if(idx==1){
+					ctx.beginPath();
+					ctx.lineWidth=2;
+					ctx.moveTo(preX, preY);	//직전좌표로 이동
+					ctx.lineTo(e.pageX, e.pageY);	//직전좌표부터 현재좌표까지 선그리기
+					ctx.stroke();
+					ctx.closePath();
+				} else if(idx==2){
+					ctx.fillRect(e.pageX, e.pageY, 50, 50);
+				}
+				
+				//현재좌표 다시 저장
+				preX=e.pageX;
+				preY=e.pageY;
+			}
+		}
+		
+		//마우스를 떼면 안그려지게
+		can.onmouseup=function(){
+			draw=false;
+		}
+		
+		
+		//화면초기화
+		document.getElementById("clear").onclick=function(){
+			
+			ctx.fillStyle="#ffffff";
+			ctx.fillRect(0, 0, can.width, can.height);
+		}
+		
+		//색상 변경하기
+		//제이쿼리 이벤트 미리 맛보기
+		//id가 clr인 태그 바로 아래의 div를 클릭시 이벤트
+		$("#clr>div").click(function(){
+			
+			idx=1;
+			
+			//현재 div 태그의 배경색 속상값을 얻어서 선색 변경하기
+			ctx.strokeStyle=$(this).css("background-color");
+		});
+		
+		
+		//지우개
+		$("#eraser").click(function(){
+			
+			//선을 흰색으로 변경해서 지우개 효과
+			idx=2;
+			ctx.strokStyle="#ffffff";
+			ctx.fillStyle="#ffffff";
+		});
+		
+}
+
+</script>
+
+</head>
+<body>
+
+	<h2>canvas를 이용한 간단 그림판</h2>
+	<canvas id="can" width="1000" height="500"></canvas>
+
+	<div id="clr">
+		<div style="background-color: #48d1cc"></div>
+		<div style="background-color: #ff00ff"></div>
+		<div style="background-color: #db7093"></div>
+		<div style="background-color: #ffd700"></div>
+		<div style="background-color: #8b4513"></div>
+		<div style="background-color: #adff2f"></div>
+		<div style="background-color: #008800"></div>
+		<div style="background-color: #ff6924"></div>
+		<div style="background-color: #f8f8ff"></div>
+		<div style="background-color: #708090"></div>
+	</div>
+	
+	<div id="clear">화면초기화</div>
+	<div id="eraser">지우개</div>
+
+</body>
+</html>

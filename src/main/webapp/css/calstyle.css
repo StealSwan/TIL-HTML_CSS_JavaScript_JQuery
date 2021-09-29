@@ -1,0 +1,48 @@
+@charset "EUC-KR";
+@import url('https://fonts.googleapis.com/css2?family=Single+Day&display=swap');
+
+.seldate select,#calview{
+	
+	font-family: 'Single Day';
+	font-size: 1.4em;
+	width: 110px;
+}
+
+.seldate{
+	
+	margin-left: 300px;
+}
+
+#calview{
+	margin-left: 250px;
+	margin-top: 30px;
+}
+
+#calview table{
+	
+	border-collapse: collapse;
+	width: 800px;
+}
+
+#calview table tr{
+	
+	height: 60px;
+}
+
+#calview table th{
+	
+	border: 1px solid gray;
+	background-color: #afeeee;
+	color: black;
+	font-family: 'Single Day';
+	font-size: 13pt;
+}
+
+#calview table td{
+	border: 1px solid gray;
+	font-family: 'Single Day';
+	text-align: center;
+	line-height: 60px;
+	font-size: 13pt;
+	
+}

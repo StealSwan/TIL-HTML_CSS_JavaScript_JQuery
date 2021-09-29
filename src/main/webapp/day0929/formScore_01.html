@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<style type="text/css">
+	table {
+		width: 300px;
+		border-collapse: collapse;
+	}
+	
+	th,td{
+		border: 1px solid green;
+	}
+</style>
+
+<script type="text/javascript">
+
+	window.onload=function(){
+		
+		var r= document.getElementById("result"); //결과 출력창
+		var pro = document.getElementById("pro"); //프로그래스바 id
+		
+		//결과확인 버튼 이벤트
+		document.getElementById("btnresult").onclick=function(){
+			
+			//이름읽기
+			var name= document.getElementById("name").value;
+			
+			if(name.length==0){
+				alert("이름을 입력해주세요");
+				return;
+			}
+			
+			//자바점수읽기
+			var java= document.getElementById("java").value;
+			
+			if(java.length==0){
+				alert("자바 점수를 입력해주세요");
+				return;
+			}
+			
+			//문자입력시 경고후 종료
+			if(isNaN(java)){
+				/* 문자가 있을 경우 true값 반환 */
+				alert("숫자로만 입력해주세요");
+				return;
+			}
+			
+			//HTML점수읽기
+			var html= document.getElementById("html").value;
+			
+			if(html.length==0){
+				alert("HTML 점수를 입력해주세요");
+				return;
+			}
+			
+			//문자입력시 경고후 종료
+			if(isNaN(html)){
+				/* 문자가 있을 경우 true값 반환 */
+				alert("숫자로만 입력해주세요");
+				return;
+			}
+			
+			//점수의 합계, 총점 - 문자를 수식으로 변환
+			var sum=eval(java+"+"+html);
+			var avg=sum/2;
+			
+			//운전면허 체크박스 - 선택 상관없이 value값 출력, value 없으면 on 출력
+			/* var driver= document.getElementById("driver").value; */
+			
+			var chkdriver= document.getElementById("driver");
+			
+			//결과확인
+			var s = "[결과확인]<br>"
+			s+= "이름: " + name + "<br>";
+			s+= "Java 점수: " + java + "<br>";
+			s+= "HTML 점수: " + html + "<br>";
+			s+= "총점: " + sum + "<br>";
+			s+= "평균: " + avg + "<br>";
+			s+= "운전면허: " + (chkdriver.checked? "있음":"없음") + "<br>";
+			s+= "나의 인기도: " + pro.value; 
+			
+			r.innerHTML=s;
+	}
+			//인기도 버튼 이벤트
+			var proland = document.getElementById("prorand");
+			
+			document.getElementById("btnprogress").onclick=function(){
+				
+				//30~100사이 난수값
+				var rnd= parseInt(Math.random()*71)+30;
+				
+				//출력-한번에 출력
+				/* pro.value= rnd;
+				proland.innerHTML= rnd;
+				} */
+			
+				//시간 interval을 두고 출력
+				var n=0;
+				proland.innerHTML = "";
+				
+				var inter = setInterval(function(){
+					
+					n++;
+					pro.value=n;
+					
+					if(n==rnd){
+						proland.innerHTML = rnd; //span 태그에 출력
+						clearInterval(inter); //현재 타이머 종료
+					}
+				},10);	//100이 0.1초 - 숫자가 작을수록 빨라짐
+	}
+	}
+
+</script>
+
+<title>Insert title here</title>
+</head>
+<body>
+
+	<table>
+		<caption><b>폼태그 Number & setInterval 테스트</b></caption>
+		<tr>
+			<th width="100" bgcolor="gray">이름</th>
+			<td><input type="text" id="name" size="6"></td>
+		</tr>
+
+		<tr>
+			<th width="100" bgcolor="gray">자바점수</th>
+			<td><input type="text" id="java" size="6"></td>
+		</tr>
+
+		<tr>
+			<th width="100" bgcolor="gray">HMTL점수</th>
+			<td><input type="text" id="html" size="6"></td>
+		</tr>
+
+		<tr>
+			<th width="100" bgcolor="gray">운전면허</th>
+			<td><input type="checkbox" id="driver" value="yes">있음</td>
+		</tr>
+		
+		<tr>
+			<th>나의 인기도</th>
+			<td>
+				<progress id="pro" max="100" value="0"></progress>
+				<br>
+				<button type="button" id="btnprogress">인기도 측정</button>
+				&nbsp; &nbsp;
+				<span id="prorand">0</span>
+			</td>
+		</tr>
+
+		<tr>
+			<td colspan="2" align="center">
+				<button type="button" id="btnresult">결과확인</button>
+			</td>
+		</tr>
+
+		<tr height="100">
+			<td colspan="2" align="center">
+				<div id="result"></div>
+		</tr>		
+	</table>
+
+</body>
+</html>
