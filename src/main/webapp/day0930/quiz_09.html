@@ -17,7 +17,12 @@
 <script type="text/javascript">
 
 	//모든 img에 같은 이미지를 넣고 width, height, border 설정
-	$("img").attr("src", "../image/01.png");
+	$("img").attr("src", "../image/01.png").css({
+		
+		"width": "200px",
+		"height": "200px",
+		"border": "1px solid pink"
+	});
 	
 	//5개의 또다른 이미지명을 배열에 넣는다
 	var arr = [
