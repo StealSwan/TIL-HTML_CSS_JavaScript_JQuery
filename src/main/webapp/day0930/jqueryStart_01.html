@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Insert title here</title>
+<script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+
+<script type="text/javascript">
+
+	/* javaScript의 window.onload에 해당 */
+	$(function(){
+		//alert("load");
+		
+		//b태그 중에서 클래스명이 happy인 태그의 배경색을 orange 색으로 변경하라
+		$("b.happy").css("background-color","orange");
+		
+		//1. 방법1... 연달아 css함수를 준다
+		//모든 h2태그의 border를 변경하고, 글자색을 빨강색으로 변경
+		$("h2").css("border","3px inset pink").css("color","red");
+		
+		//2. 방법2
+		$("h2").css({
+			"border": "5px double blue",
+			"color" : "gray"
+		});
+		
+		
+		//모든 이미지의 속성은 scc를 변경하라
+		//스타일변경은 css, 속성변경은 attr을 사용
+		//style의 width 값도 같이 수정하기
+		//$("img").attr("src","../image/01.png").css("width","200px");
+		
+		//스타일을 여러개를 변경할 경우, width:150 border로 변경
+		$("img").attr("src","../image/09.png").css({
+			
+			"width":"150px",
+			"border": "2px dotted magenta"
+		});
+		
+		//문제1
+		//1.img 태그중 클래스명이 yourImg의 이미지를 변경하고, width, border-radius, border, box-shadow를 변경
+		$("img.yourImg").attr("css","../image/04.png").css({
+		
+			"width": "200px",
+			"border-radius": "2px",
+			"border": "3px solid red",
+			"box-shadow": "5px 5px 5px orange"
+		});
+		
+		//문제2
+		//2. span태그중 클래스명이 nice인 태그의 배경색과 글자색, 글자크기를 변경하시오
+		$("span.nice").css({
+			
+			"background-color": "magenta",
+			"color": "white",
+			"font-size": "20px"
+		});
+		
+		//문제3
+		//3. id가 myImg의 이미지와 너비를 변경하고 title을 '안녕하세요'로 변경하시오
+		$("#myImg").css("width","300px").attr({
+			
+			"src": "../image/02.png",
+			"title": "안녕하세요"
+		})
+	});
+
+</script>
+
+</head>
+<body>
+
+	<h2>JQuery에서 제일 많이 사용하는 함수 css, attr</h2>
+	<b class="happy">B Tag Class Happy</b>
+	
+	<br>
+	<span class="nice">Span Tag Class Nice</span>
+	
+	<br>
+	<h2 class="happy">H2 Tag Class Happy</h2>
+
+	<b>내가 좋아하는 이미지들</b>
+	<img src="">
+	<img src="" class="yourImg">
+	<img src="">
+	<img src="" id="myImg">
+	
+</body>
+</html>

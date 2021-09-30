@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Insert title here</title>
+<style type="text/css">
+
+	.happy{
+		width: 200px;
+		height: 200px;
+		border: 10px dashed purple;
+		background-image: url("../image/06.png");
+		background-repeat: no-repeat; /* 이미지 반복없음 */
+		background-size: 30px 30px;	/* 이미지 사이즈 */
+	}
+
+</style>
+
+<script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+</head>
+<body>
+
+	<h4>addClass, removeClass, toggleClass에 대한 연습</h4>
+	<button type="button" id="btn1">스타일 추가</button>
+	<button type="button" id="btn2">스타일 제거</button>
+	<button type="button" id="btn3">스타일 추가/제거반복</button>
+
+	<div></div>
+
+
+<script type="text/javascript">
+
+	//스타일추가 버튼을 누르면 happy라는 클래스를 div에 추가
+	$("#btn1").click(function(){
+		
+		$("div").addClass("happy");
+	});
+
+	//제거
+	$("#btn2").click(function(){
+		
+		$("div").removeClass("happy");
+	});
+	
+	//추가, 제거
+	$("#btn3").click(function(){
+		
+		$("div").toggleClass("happy");		
+	});
+	
+	
+</script>
+</body>
+</html>

@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Insert title here</title>
+<script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+<style type="text/css">
+
+	a{
+		background-color: cyan;
+		cursor: pointer;
+		border: 3px groove gray;
+		box-shadow: 7px 7px 10px #ddd;
+		margin-left: 10px;
+		font-size: 15pt;
+	}
+	
+	div{
+		width: 300px;
+		height: 300px;
+		border: 1px solid gray;
+		margin-top: 30px;
+	}
+	
+	div.a{
+		font-size: 2em;
+		font-family: "궁서체";
+		color: blue;
+	}
+	
+	div.b{
+		border: 10px groove gold;
+		border-radius: 30px;
+		box-shadow: 5px 5px 5px magenta;
+	}
+	
+	div.c{
+		background-image: url("../image/03.png");
+		background-repeat: no-repeat;
+		background-size: 150px 150px;
+		background-position: center center;
+	}
+
+</style>
+
+</head>
+<body>
+
+	<a>클래스 a만 추가</a>
+	<a>클래스 b만 추가</a>
+	<a>클래스 a,b만 추가</a>
+	<a>클래스 c만 추가</a>
+	<a>클래스 a,b,c 모두추가</a>
+	
+	<div>제이쿼리</div>
+
+
+<script type="text/javascript">
+
+	$("a:eq(0)").click(function(){
+		
+		$("div").removeClass("b c").addClass("a");
+	});
+	
+	
+	//2번 a태그 클릭시 b만 추가
+	$("a:eq(1)").click(function(){
+		
+		$("div").removeClass("a c").addClass("b");
+	});
+	
+	//3번 a태그 클릭시 a b 추가
+	$("a:eq(2)").click(function(){
+		
+		$("div").removeClass("c").addClass("a b");
+	})
+	
+	//4번 클릭시 c만 추가
+	$("a:eq(3)").click(function(){
+		
+		$("div").removeClass("a b").addClass("c");
+	})
+	
+	
+	//5번 클릭시 모두 추가
+	$("a:eq(4)").click(function(){
+		
+		$("div").addClass("a b c");
+	})
+
+	
+</script>
+</body>
+</html>

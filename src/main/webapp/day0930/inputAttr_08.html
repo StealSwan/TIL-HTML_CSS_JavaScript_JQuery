@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Insert title here</title>
+<script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+</head>
+<body>
+
+	<h3>R,G,B 색상 입력하기</h3>
+	
+	R: <input type="text" id="txtr" value="255">&nbsp;&nbsp;&nbsp;
+	G: <input type="text" id="txtg" value="0">&nbsp;&nbsp;&nbsp;
+	B: <input type="text" id="txtb" value="255">&nbsp;&nbsp;&nbsp;
+	
+	<div></div>
+
+
+<script type="text/javascript">
+	
+		//input[type=타입]{스타일 내용}
+		$("input[type='text']").css({
+			
+			"border": "2px solid gray",
+			"width": "100px",
+			"height": "30px",
+			"font-size": "17pt"
+		});
+		
+		//div_RGB컬러 출력할 곳
+		var r=255, g=0, b=255;
+		var color="rgb("+r+","+g+","+b+")";
+		
+		$("div").css({
+			
+			"width": "450px",
+			"height": "200px",
+			"border": "5px solid gold",
+			"background-color": color,
+			"margin-top": "50px"
+		});
+	
+		
+		//R
+		$("#txtr").keyup(function(){
+			
+			if(isNaN($(this).val())){
+				return;	//숫자가 아닐경우 함수종료
+			}
+			
+			r=$(this).val();	//폼필드의 값을 설정하고 해당값 변환
+			color="rgb("+r+","+g+","+b+")";
+			$("div").css("background-color", color);
+		})
+
+		//G
+		$("#txtg").keyup(function(){
+			
+			if(isNaN($(this).val())){
+				return;	//숫자가 아닐경우 함수종료
+			}
+			
+			g=$(this).val();	//폼필드의 값을 설정하고 해당값 변환
+			color="rgb("+r+","+g+","+b+")";
+			$("div").css("background-color", color);
+		})
+		
+		//B
+		$("#txtb").keyup(function(){
+			
+			if(isNaN($(this).val())){
+				return;	//숫자가 아닐경우 함수종료
+			}
+			
+			b=$(this).val();	//폼필드의 값을 설정하고 해당값 변환
+			color="rgb("+r+","+g+","+b+")";
+			$("div").css("background-color", color);
+		});
+		
+		
+</script>
+
+</body>
+</html>

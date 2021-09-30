@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Insert title here</title>
+<script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+</head>
+<body>
+
+	<h3 class="a"></h3>
+	<hr>
+	<h3 class="b">h3의 내용을 이곳에 복사하세요</h3>
+
+
+<script type="text/javascript">
+
+	//예쁜 미니언즈입니다
+	$("h3:eq(0)").html("<b>예쁜 미니언즈입니다</b>").append("<img src='../image/04.png'>");
+	
+	//위에 클릭시 alert창에 '안에 코드를 복사했습니다'가 나타나게
+	$("h3.a").click(function(){
+		
+		tag=$(this).html();
+		alert("안의 코드를 복사하였습니다");
+	});
+	
+	//아래 클릭시 미니언즈가 복사가 되게
+	$("h3.b").click(function(){
+		
+		$(this).html(tag); //대체
+		//$(this).append(tag);	//추가
+	});
+	
+</script>
+</body>
+</html>

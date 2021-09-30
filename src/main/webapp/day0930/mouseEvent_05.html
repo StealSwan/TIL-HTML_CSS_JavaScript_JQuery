@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Insert title here</title>
+<script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+</head>
+<body>
+
+	<h2>마우스를 올리면 이미지가 변경.. 벗어나면 다시 원래대로 변경</h2>
+	<img src="../image/01.png" width="300">
+	<img src="../image/02.png" width="300">
+	<img src="../image/03.png" width="300">
+
+	
+<script type="text/javascript">
+
+	$("img").mouseover(function(){
+		
+		imgsrc=$(this).attr("src");	//자신의 src속성을 저장해둠
+		$(this).attr("src","../image/08.png");	//자신의 src 속성을 변경
+	});
+	
+	//마우스 벗어나면 다시 원래의 이미지로
+	$("img").mouseout(function(){
+		
+		$(this).attr("src",imgsrc);
+	});
+
+</script>
+
+</body>
+</html>
