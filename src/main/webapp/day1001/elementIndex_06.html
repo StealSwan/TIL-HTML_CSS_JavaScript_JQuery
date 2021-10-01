@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Insert title here</title>
+<script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+<style type="text/css">
+
+	.bg_0 {background-color: orange; color : gray;}
+	.bg_1 {background-color: pink; color : black;}
+	.bg_2 {background-color: yellow; color : gray;}
+	.bg_3 {background-color: blue; color : white;}
+	.bg_4 {background-color: cyan; color : gray;}
+
+	ul li {width: 130px;}
+
+</style>
+</head>
+<body>
+
+	<!-- 태그반복할때 사용하는 each -->
+	<b></b>
+	<b></b>
+	<b></b>
+	<b></b>
+	<b></b>
+
+
+<script type="text/javascript">
+
+	/* b태그 갯수만큼 자동으로 반복 */
+	//i는 index:0 부터
+	//element는 인덱스에 해당하는 b태그 : 생략가능
+	$("b").each(function(i,element){
+		
+		//$(this).text(i);
+		$(element).text(i);
+	});
+
+</script>
+
+
+	<hr>
+	
+	<ul>
+		<li>apple</li>
+		<li>orange</li>
+		<li>kiwi</li>
+		<li>manggo</li>
+		<li>strawberry</li>
+	</ul>
+	
+
+<script type="text/javascript">
+
+	$("ul li").each(function(idx){
+		
+		$(this).addClass("bg_"+idx);
+		//each는 선택요소가 여러개일때 각각에 대해 반복해 함수 실행
+	});
+
+	
+	//li에 마우스 올리면 ***을 출력
+	//apend 추가, after로 추가할때비교
+	$("ul li").mouseover(function(){
+
+		//$(this).append("<b>***</b>");
+		
+		//li태그 뒤에 b태그가 추가
+		$(this).after("<b>***</b>");
+	});
+	
+	
+	//마우스 벗어나면 b태그 제거
+	$("ul li").mouseout(function(){
+		
+		//b태그를 찾아서 제거
+		$(this).next().remove();
+	});
+	
+</script>	
+	
+</body>
+</html>

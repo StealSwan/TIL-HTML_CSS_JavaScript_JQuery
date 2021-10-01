@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Insert title here</title>
+<script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+<script type="text/javascript" src="../js/myscript.js"></script>
+
+<style type="text/css">
+
+	div {
+		width: 80px;
+		height: 80px;
+		float: left;
+		border-radius: 100px;
+		margin-left: 10px;
+		font-size: 2em;
+		text-align: center;
+		line-height: 80px;
+		border: 1px solid gray;
+	}
+
+</style>
+</head>
+<body>
+
+	<div></div>
+	<div></div>
+	<div></div>
+	<div></div>
+	<div></div>
+	<div></div>
+	
+	<h2></h2>
+
+
+<script type="text/javascript">
+
+	$("div").each(function(i){
+		
+		$(this).css("background", randomColor()).html(i+1);
+	});
+	
+
+/* 	
+	//div에 마우스를 올리면 해당색상으로 rgb 색상출력
+	$("div").mouseover(function(){
+		
+		var co = $(this).css("background-color");
+		$("h2").css("color", co).html(co);
+	});
+	
+	
+	//마우스를 벗어나면 다시 지우기 empty()
+	$("div").mouseout(function(){
+		
+		$("h2").empty();
+	});
+	 */
+	
+	 
+	//hover = mouseover + mouseout
+	$("div").hover(function(){
+		
+		var co = $(this).css("background-color");
+		$("h2").css("color", co).html(co);
+
+	}, function(){
+		$("h2").empty();
+	});
+	 
+</script>
+</body>
+</html>

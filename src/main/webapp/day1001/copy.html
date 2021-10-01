@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Insert title here</title>
+<link href="https://fonts.googleapis.com/css2?family=Nanum+Pen+Script&display=swap" rel="stylesheet">
+ <script src="https://code.jquery.com/jquery-3.5.0.js"></script>
+ <style type="text/css">
+ #result{
+ 
+ 	font-family: 'Nanum Pen Script';
+ 	font-size: 1.2em;
+ 	margin-top: 30px;
+ }
+ 
+ #btn{
+ 	margin-left: 50px;
+ 	background-color: magenta;
+ 	color: white;
+ 	font-size: 1.2em;
+ }
+ </style>
+ 
+ <script type="text/javascript">
+ 
+ $(function(){
+	 
+	 $("#btn").click(function(){
+		 
+		 
+		 fcolor=$("input[name='fcolor']:checked").val();
+		 fsize=$("#selfsize option:selected").text();
+		 
+		 
+		 $("#result").css({
+			 
+			 "color":fcolor,
+			 "font-size":fsize
+		 });
+		 
+		 //이미지 가져오기
+		 myimg="";
+		 $("input[name='doll']:checked").each(function(i,element){
+			 
+			 myimg+="<img src='../image/"+$(this).val()+".png'>";
+		 });
+		 
+		 
+		 $("div.mydoll").html(myimg);
+		 
+	 });
+	 
+	 
+ });
+ 
+ 
+ </script>
+ 
+</head>
+<body>
+<h3>폼태그 문제</h3>
+<div>
+  <h4>글자색</h4>
+  <input type="radio" name="fcolor" value="pink">분홍
+  <input type="radio" name="fcolor" value="green">초록
+  <input type="radio" name="fcolor" value="cyan">파랑
+  <input type="radio" name="fcolor" value="purple" checked="checked">보라
+  
+  
+  <h4>글꼴사이즈</h4>
+  <select id="selfsize">
+    <option>1.5em</option>
+    <option>2.0em</option>
+    <option>2.5em</option>
+    <option>3.0em</option>
+  </select>
+  
+  <h4>체크된 이미지 모두 출력</h4>
+  <input type="checkbox" name="doll" value="01">인형1
+  <input type="checkbox" name="doll" value="02">인형2
+  <input type="checkbox" name="doll" value="03">인형3
+  <input type="checkbox" name="doll" value="04">인형4
+  
+  <br><br>
+  <button type="button" id="btn">선택한 값 모두 적용하기</button>
+</div>
+
+<div id="result">
+여러분 !!!금요일 입니다..힘내세요 
+
+ <div class="mydoll"></div>
+</div>
+</body>
+</html>
+

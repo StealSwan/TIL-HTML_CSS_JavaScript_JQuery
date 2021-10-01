@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Insert title here</title>
+<link href="https://fonts.googleapis.com/css2?family=Nanum+Pen+Script&display=swap" rel="stylesheet">
+<script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+
+<style type="text/css">
+
+	#result{
+		font-family: 'Nanum Pen Script', cursive;
+		font-size: 1.2em;
+		margin-top: 30px;
+	}
+	
+	#btn{
+		margin-left: 50px;
+		background-color: magenta;
+		color: white;
+		font-size: 1.2em;
+	}
+
+</style>
+
+</head>
+<body>
+
+	<h3>폼태그 문제</h3>
+	<div>
+		<h4>글자색</h4>
+		<input type="radio" name="fcolor" value="pink">분홍
+		<input type="radio" name="fcolor" value="green">초록
+		<input type="radio" name="fcolor" value="blue">파랑
+		<input type="radio" name="fcolor" value="purple">보라
+		
+		<h4>글꼴사이즈</h4>
+		<select id="selfsize">
+			<option value="1.5em">1.5em</option>
+			<option value="2.0em">2.0em</option>
+			<option value="2.5em">2.5em</option>
+			<option value="3.0em">3.0em</option>			
+		</select>
+		
+		<h4>체크된 이미지 모두 출력</h4>
+		<input type="checkbox" name="doll" value="01">미니언1 &nbsp;&nbsp;
+		<input type="checkbox" name="doll" value="02">미니언2 &nbsp;&nbsp;
+		<input type="checkbox" name="doll" value="03">미니언3 &nbsp;&nbsp;
+		<input type="checkbox" name="doll" value="04">미니언4 &nbsp;&nbsp;
+		
+		<br><br>
+		<button type="button" id="btn">선택한 값 모두 적용하기</button>
+		
+	</div>
+	
+	
+	<div id="result">
+	즐거운 금요일입니다!!!
+	
+		<div class="mydoll"></div>
+	</div>
+
+
+<script type="text/javascript">
+
+
+	$("#btn").click(function(){
+
+		//텍스트값 가져오기
+		var text = $("#result").text();
+		
+		//라디오 박스 값에 따라 글자색 변경
+		var tColor = $("input[name=fcolor]:checked").val();
+				
+		//라디오 박스 값에 따라 글꼴 사이즈 변경하기
+		/* !!!checked는 띄워쓰면 안됨!!! */
+		var fSize = $("#selfsize option:checked").val();
+		
+		//변환된 글자출력
+		//!!! 이런식으로 출력할 경우, result 아래값들이 전부 s로 대체되기 때문에 mydoll 클래스가 증발해버림 !!!
+	/* 	var s = "<b style='color:" + tColor + "; font-size:" + fSize + "'>" + text + "</b>";
+		$("#result").html(s);
+	 */
+	 	
+	 	//따라서 가볍게 css만 변경해주기
+	 	$("#result").css({
+	 		
+	 		"color": tColor,
+	 		"font-size": fSize
+	 	});
+	 
+	 
+		//이미지 출력 - 선택될때마다 변수에 값저장
+		img ="";
+		$("input[name=doll]:checked").each(function(i,element){
+			
+			img += "<img src='../image/" +$(this).val()+ ".png'>";
+			
+		});
+		
+		//이미지 출력
+		$("div.mydoll").html(img);
+		
+	});
+	
+</script>
+</body>
+</html>

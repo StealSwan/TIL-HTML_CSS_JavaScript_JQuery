@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Insert title here</title>
+<script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+</head>
+<body>
+
+	<p>오늘 쇼핑 리스트</p>	
+		<ol>
+			<li>운동화</li>
+			<li>레깅스</li>
+			<li>양말</li>
+			<li>져지</li>
+		</ol>
+
+	<p>오늘 메뉴 선택</p>	
+		<ol>
+			<li>초밥</li>
+			<li>스테이크</li>
+			<li>떡볶이</li>
+			<li>김치찌개</li>
+		</ol>
+
+<script type="text/javascript">
+
+	//전체에서 첫번째 li
+	//$("ol li:first").css("background-color", "yellow");
+	
+	//각 ol의 첫번째 li
+	$("ol li:first-child").css("background-color", "yellow");
+	
+	//전체항복에서 '스테이크'를 찾아서 글자크기 1.5배로
+	$("li:contains(스테이크)").css("font-size", "1.5em");
+	
+	//li의 홀수... odd:홀수, even:짝수
+	$("li:odd").css("border", "2px inset cyan");
+
+</script>
+</body>
+</html>

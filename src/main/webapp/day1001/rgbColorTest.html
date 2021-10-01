@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Insert title here</title>
+<script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+</head>
+<body>
+
+	<div>0</div><div>1</div><div>2</div><div>3</div><div>4</div>
+	<span></span>
+
+<script type="text/javascript">
+
+	$("div").css({
+		
+		"width": "120px",
+		"height": "120px",
+		"border": "2px solid black",
+		"float": "left",
+		"font-size": "20pt",
+		"text-align": "center",
+		"line-height": "120px",
+		"cursor": "pointer",
+		"margin-right": "5px"
+	});
+
+	$("span").css("font-size", "20pt");
+	
+	//div의 크기를 일정하게 지정한 후 랜덤하게 색상 만들기... 배갱셕으로 넣기
+	for(var i=0; i<$("div").length; i++){
+		
+		//rgb색상 얻기
+		var r = parseInt(Math.random()*256);
+		var g = parseInt(Math.random()*256);
+		var b = parseInt(Math.random()*256);
+		var color="rgb(" +r+ "," +g+ "," +b+ ")";
+		
+		//순번에 맞게 배경색을 지정
+		$("div").eq(i).css("background-color", color);
+	}
+	
+	//각각의 div 클릭시 해당 배경색을 얻어서 span에 텍스트로 출력한다 rgb(155, 155, 25)
+	$("div").click(function(){
+		
+		var bg= $(this).css("background-color");
+		$("span").text(bg);
+	});
+	
+</script>
+</body>
+</html>
