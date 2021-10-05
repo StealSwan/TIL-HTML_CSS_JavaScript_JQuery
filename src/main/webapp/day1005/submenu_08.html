@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Insert title here</title>
+<script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+<style type="text/css">
+
+	div.sist {
+		position: absolute;
+		left: 300px;
+		width: 250px;
+		height: 300px;
+		border: 2px groove gray;
+		border-radius: 30px;
+		top: 100px; 
+	}
+	
+	ul li{
+		list-style: none;
+	}
+	
+	ul.menu>li {
+		font-size: 2em;
+		font-family: "Nanum Pen Script";
+		font-weight: bold;
+		cursor: pointer;
+	}
+	
+	ul.submenu>li{
+		font-size: 24px;
+		font-family: 'Gaegu';
+	}
+	
+	ul.submenu>li{
+		color: yellow;
+	}
+
+</style>
+
+<script type="text/javascript">
+
+	$(function(){
+		
+		//모든 서브메뉴 숨기기
+		$("ul.submenu").hide();
+		
+		//메인메뉴명 클릭시 해당메뉴의 서브메뉴가 나타나게 하기
+		$("ul.menu>li").click(function(){
+			
+			$(this).find("ul.submenu").show("slow");
+			
+			//다른 서브메뉴 선택시 기존 서브메뉴들은 모두 숨긴다
+			$(this).siblings().find("ul.submenu").hide("slow");
+
+		});
+		
+	})
+
+</script>
+
+</head>
+<body>
+
+	<div class="sist">
+		<ul class="menu">
+			<li>File
+				<ul class="submenu">
+					<li>New</li>
+					<li>Open</li>
+					<li>Save</li>
+					<li>Rename</li>					
+				</ul>
+			</li>
+			
+			<li>Edit
+				<ul class="submenu">
+					<li>Cut</li>
+					<li>Copy</li>
+					<li>Paste</li>
+					<li>Delete</li>
+				</ul>
+			</li>
+			
+			<li>Help
+				<ul class="submenu">
+					<li>Search</li>
+					<li>Install</li>
+					<li>Market</li>
+					<li>Donate</li>
+				</ul>
+			</li>
+		</ul>
+	</div>
+
+</body>
+</html>

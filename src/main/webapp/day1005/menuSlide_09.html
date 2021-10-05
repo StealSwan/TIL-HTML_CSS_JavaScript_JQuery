@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Insert title here</title>
+<script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+
+<style type="text/css">
+
+	a{
+		text-decoration: none;
+	}
+	
+	ul li{
+		list-style: none;
+	}
+	
+	li.main{
+		float: left;
+	}
+	
+	li.main>a{
+		display: block;
+		width: 180px;
+		color: #333;
+		font-weight: bold;
+		font-family: 'Gaegu';
+	}
+	
+	li.main>a:hover{
+		color: #ff770b;
+	}
+	
+	ul.sub{
+		margin-left: 0;
+		font-size: 12px;
+		font-family: 'Gaegu';
+		margin-top: 15px;
+	}
+	
+	ul.sub>li>a{
+		display: block;
+		width: 180px;
+		height: 20px;
+		color: #333;
+	}
+	
+	ul.sub>li>a:hover{
+		color: #ff770b;
+	}
+
+</style>
+
+</head>
+<body>
+
+	<div>
+		<ul>
+			<li class="main">
+				<a href="#">서울 IT정보센터 안내</a>
+				<ul class="sub">
+					<li><a href="#">초대의글</a></li>
+					<li><a href="#">시설안내</a></li>
+					<li><a href="#">주변시설</a></li>
+					<li><a href="#">찾아오시는길</a></li>
+				</ul>
+			</li>
+			
+			<li class="main">
+				<a href="#">정보센터안내</a>
+				<ul class="sub">
+					<li><a href="#">층별안내</a></li>
+					<li><a href="#">강의실</a></li>
+					<li><a href="#">주변숙소</a></li>
+					<li><a href="#">주변맛집안내</a></li>
+				</ul>
+			</li>
+			
+			<li class="main">
+				<a href="#">이용안내</a>
+				<ul class="sub">
+					<li><a href="#">이용요금</a></li>
+					<li><a href="#">이용신청</a></li>
+					<li><a href="#">커리큘렴</a></li>
+					<li><a href="#">도움말</a></li>
+				</ul>
+			</li>
+
+			<li class="main">
+				<a href="#">정보광장</a>
+				<ul class="sub">
+					<li><a href="#">공지사항</a></li>
+					<li><a href="#">FAQ</a></li>
+					<li><a href="#">Q&A</a></li>
+					<li><a href="#">자유게시판</a></li>
+				</ul>
+			</li>
+						
+			<li class="main">
+				<a href="#">서울 IT 소개</a>
+				<ul class="sub">
+					<li><a href="#">CEO 인사말</a></li>
+					<li><a href="#">경영비전</a></li>
+					<li><a href="#">인재양성</a></li>
+					<li><a href="#">관련회사 소개</a></li>
+				</ul>
+			</li>
+			
+		</ul>
+	</div>
+
+
+<script type="text/javascript">
+
+	$("ul.sub").hide();	
+	
+	$("li.main").hover(function(){
+		
+		$(this).children("ul").slideDown("fast");
+		
+	}, function(){
+		$(this).children("ul").slideUp("fast");
+	})
+
+</script>
+</body>
+</html>

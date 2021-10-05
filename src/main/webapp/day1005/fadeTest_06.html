@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Insert title here</title>
+<script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+
+<style type="text/css">
+
+	body, ul, li{
+		margin: 0;
+		padding: 0;
+	}
+
+	div #logo{
+		width: 250px;
+		height: 130px;
+		margin: 100px auto;
+		cursor: pointer;
+	}
+	
+	ul #list {
+		width: 900px;
+		margin-top: auto;
+	}
+	
+	li {
+		list-style: none;
+		float: left;
+		cursor: pointer;
+		width: 150px;
+		height: 230px;
+		margin-left: 50px;
+		margin-top: 250px;
+	}
+
+</style>
+
+</head>
+<body>
+
+	<div id="wrap">
+	
+	<div id="logo"><img alt="제목" src="../image/미니언즈.jfif"></div>
+	
+	<ul id="list">
+		<li><img alt="" src="../image/01.png"></li>
+		<li><img alt="" src="../image/02.png"></li>
+		<li><img alt="" src="../image/03.png"></li>
+		<li><img alt="" src="../image/04.png"></li>
+		<li><img alt="" src="../image/05.png"></li>
+		<li><img alt="" src="../image/06.png"></li>
+	</ul>
+	</div>
+	
+	
+<script type="text/javascript">
+
+	//각각 이미지 사라지게
+	$("li img").click(function(){
+		$(this).fadeOut();
+	});
+	
+	//제목누르면 이미지 다시 나타나게
+	$("#logo").click(function(){
+		$("li img").fadeIn().css('border', '2px dashed pink');
+	})
+
+</script>	
+</body>
+</html>

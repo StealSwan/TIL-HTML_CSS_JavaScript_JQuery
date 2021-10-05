@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Insert title here</title>
+<script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+<style type="text/css">
+
+	ul, li{
+		list-style: none;
+		padding: 0;
+		margin: 0;
+	}
+	
+	ul li{
+		float: left;
+		width: 150px;
+		height: 50px;
+		line-height: 50px;
+		text-align: center;
+		border: 1px solid tomato;
+		margin: 0 5px;
+	}
+	
+	.bg{
+		background: tomato;
+		color: #fff;
+	}
+
+</style>
+</head>
+<body>
+
+	<ul>
+		<li>메뉴1</li>
+		<li>메뉴2</li>
+		<li>메뉴3</li>
+		<li>메뉴4</li>
+	</ul>
+
+
+<script type="text/javascript">
+
+	$("ul li").hover(function(){
+		$(this).addClass("bg");
+		
+	}, function(){
+		
+		$(this).removeClass("bg");
+	});
+
+</script>
+</body>
+</html>

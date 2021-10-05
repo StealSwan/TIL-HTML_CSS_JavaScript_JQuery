@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Insert title here</title>
+<script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+</head>
+<body>
+
+	<button type="button" id="btn1">Hide</button>
+	<button type="button" id="btn2">Show</button>
+	<button type="button" id="btn3">Toggle</button>
+
+	<br>
+	
+	<button type="button" id="btn4">Slide Up</button>
+	<button type="button" id="btn5">Slide Down</button>
+	<button type="button" id="btn6">Slide Toggle</button>
+	
+	<br>
+	
+	<button type="button" id="btn7">Fade Out</button>
+	<button type="button" id="btn8">Fade In</button>
+	<button type="button" id="btn9">Fade Toggle</button>
+	<button type="button" id="btn10">Fade To</button>
+	
+	<div id="msg">Have a Nice Day!!</div>
+	<img alt="" id="img1" src="../image/01.png">
+
+
+<script type="text/javascript">
+
+	$("#btn1").click(function(){
+		
+		$("#msg").hide();
+		$("#img1").hide();
+	})
+	
+	$("#btn2").click(function(){
+		
+		$("#msg").show();
+		$("#img1").show();
+	})
+
+	$("#btn3").click(function(){
+		
+		$("#msg").toggle();
+		$("#img1").toggle();
+	})
+
+	$("#btn4").click(function(){
+		
+		$("#msg").slideUp("slow");
+		$("#img1").slideUp("slow");
+	})
+
+	$("#btn5").click(function(){
+		
+		$("#msg").slideDown("slow");
+		$("#img1").slideDown("slow");
+	})
+
+	$("#btn6").click(function(){
+		
+		$("#msg").slideToggle("slow");
+		$("#img1").slideToggle("slow");
+	})
+
+	$("#btn7").click(function(){
+		
+		$("#msg").fadeOut();
+		$("#img1").fadeOut();
+	})
+
+	$("#btn8").click(function(){
+		
+		$("#msg").fadeIn();
+		$("#img1").fadeIn();
+	})
+
+	$("#btn9").click(function(){
+		
+		$("#msg").fadeToggle();
+		$("#img1").fadeToggle();
+	})
+
+	$("#btn10").click(function(){
+		
+		//3초동안 반투명이 된후 함수실행
+		$("#msg").fadeTo(3000,0.5, function(){
+			
+			$("#msg").css("border", "10px dotted orange")
+		});
+		
+		$("#img1").fadeTo(3000,02, function(){
+
+			$(this).css("opacity", "0.5");
+		});
+	})
+	
+</script>	
+</body>
+</html>
