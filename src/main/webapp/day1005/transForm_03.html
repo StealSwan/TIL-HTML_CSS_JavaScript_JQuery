@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Insert title here</title>
+<script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+</head>
+<body>
+
+	<img alt="" src="../image/01.png">
+	<img alt="" src="../image/02.png">
+	<img alt="" src="../image/03.png">
+	<img alt="" src="../image/04.png">
+
+
+<script type="text/javascript">
+
+	//첫번째 이미지 hover
+	/* img와 eq사이 띄어쓰기 x */
+	$("img:eq(0)").hover(function(){
+		
+		//45도 회전
+		//angle은 각크기... 단위는 deg, rad, grad, turn(1회전 즉 360deg)
+		$(this).css("transform", "rotate(180deg)");
+		
+	}, function(){
+		
+		$(this).css("transform", "rotate(0deg)");
+	});
+
+	
+	//두번째 이미지에 ~45도 회전했다가 제자리
+	$("img:eq(1)").hover(function(){
+		
+		//45도 회전
+		$(this).css("transform", "rotate(-45deg)");
+		
+	}, function(){
+		
+		$(this).css("transform", "rotate(0deg)");
+	})
+	
+	
+	//세번째 이미지에 가로세로 2배확대했다가 다시 제자리
+	//scale 요소로 확대축소 가능 - 1보다 큰수는 확대, 작으면 축소
+	$("img:eq(2)").hover(function(){
+		
+		$(this).css("transform", "scale(2,2)");
+		
+	}, function(){
+		
+		//원래크기
+		$(this).css("transform", "scale(1,1)");		
+	});
+	
+	
+	//translateX (50px): 오른쪽으로 50px이동, 만약 음수지정하면 왼쪽
+	$("img:eq(3)").hover(function(){
+		
+		$(this).css("transform", "translate(50px, 50px)");
+		
+	}, function(){
+		
+		/* 제자리 */
+		$(this).css("transform", "translate(0px, 0px)");
+		
+	})
+
+	
+</script>
+
+</body>
+</html>

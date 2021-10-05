@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Insert title here</title>
+<script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+<style type="text/css">
+
+	div.right{
+		position: absolute;
+		left: 300px;
+		border: 10px solid gray;
+		padding: 20px;
+	}
+
+</style>
+
+</head>
+<body>
+
+	<div class="right">
+		<img alt="" src="../image/01.png" style="max-width: 200px;">
+	</div>
+	
+	<div class="left">
+		<b>이미지 선택</b>
+			<select id="selImage">
+				<option value="../image/02.png">이미지1</option>
+				<option value="../image/03.png">이미지2</option>
+				<option value="../image/04.png">이미지3</option>
+				<option value="../star/kojoonhee.jpg">고준희</option>
+				<option value="../star/parkboyoung.jpg">박보영</option>
+			</select>
+			
+		<br><br>
+			
+		<h4>테두리선 선택</h4>
+		<input type="radio" name="line" value="dotted">점선
+		<input type="radio" name="line" value="solid" checked="checked">실선
+		<input type="radio" name="line" value="dashed">파선
+		<input type="radio" name="line" value="groove">입체선
+		
+		<br><br>
+		
+		<b>박스그림자</b>
+		<input type="checkbox" id="shadow">그림자 넣기
+	</div>
+
+
+<script type="text/javascript">
+
+	//이미지를 선택하면 change 이벤트
+	$("#selImage").change(function(){
+		
+		//var img = $(this).val();
+		
+		/* div 아래 클래스 right를 선택하는 방법 */
+		$("div.right img").attr("src", $(this).val());
+	});
+	
+	
+	//테두리 선택시 click 이벤트(border-style 변경)
+	$("input[name='line']").click(function(){
+		
+		$("div.right").css("border-style", $(this).val());
+	});
+	
+	
+	//섀도우 선택시 click 이벤트(box-shadow 5px 5px orange)
+	$("#shadow").click(function(){
+		
+		//체크했을때 안했을때
+		if($(this).is (":checked")){
+			$("div.right").css("box-shadow", "5px 5px orange");
+		} else{
+			$("div.right").css("box-shadow", "");			
+		}
+	});
+	
+	//name으로 줬을 경우
+	/* 	$("input[name='shadow']").click(function(){
+		
+		$("div.right").css("box-shadow", "5px 5px orange");
+	})
+ */	
+</script>
+
+</body>
+</html>

@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Insert title here</title>
+<script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+<link href="https://fonts.googleapis.com/css2?family=Nanum+Pen+Script&display=swap" rel="stylesheet">
+
+<style type="text/css">
+	
+	body * {
+		font-family: 'Nanum Pen Script', cursive;
+		font-size: 13pt;
+	}
+	
+	table {
+		border: 1px solid gray;
+		border-collapse: collapse;
+	}
+	
+	th, td{
+		border: 1px solid gray;
+	}
+	
+	th {
+		width: 100px;
+		background-color: #ffc;
+	}
+	
+	#result{
+		margin-top: 30px;
+		width: 400px;
+		height: 300px;
+		padding: 10px 10px;
+		border: 2px groove gray;
+	}
+	
+</style>
+
+<script type="text/javascript">
+
+	/* document.ready랑 같음 */
+	$(function(){
+		
+		//핸드폰 4글자 입력시 다음칸으로 커서가 이동
+		$('#hp2').keyup(function(){
+			if($(this).val().length==4){
+				$('#hp3').focus();
+			}
+		});
+		
+		//버튼클릭시 정보읽어서 출력
+		//글자색은 값출력도 하고 적용도 할것
+		$("#btn").click(function(){
+			
+			var s="";
+			s="이름: " + $("#name").val()+"<br>";
+			s+= "연락처: " + $("#hp1 option:selected").text()+ "-" + $("#hp2").val()+ $("#hp3").val() +"<br>";
+
+		
+		//성별
+		s+= "성별: " +$("input[name='gender']:checked").val()+"<br>";
+		
+		//글자색
+		var fcolor= $("input[name='fcolor']:checked").val();
+		s+= "글자색: " + fcolor + "<br>";
+		
+		//자격증
+		var lic= "";
+		$("input[name='lic']:checked").each(function(i,element){
+			
+			lic+= $(this).val()+"&nbsp;";
+		});
+		
+		s+="자격증: " + (lic==""? "없음":lic);
+		
+		$("#result").html(s).css("color", fcolor);
+		
+		});
+	});
+</script>
+
+</head>
+<body>
+
+	<b>폼태그 연습 #1</b>
+	<table>
+		<caption>개인정보</caption>
+		<tr>
+			<th>이름</th>
+			<td><input type="text" id="name" size="7"></td>
+		</tr>
+		
+		<tr>
+			<th>연락처</th>
+			<td>
+				<select id="hp1">
+					<option>010</option>
+					<option>011</option>
+					<option>017</option>										
+					<option>019</option>
+				</select>
+				
+				<b>-</b>
+				<input type="text" id="hp2" maxlength="4" size="4">
+				<b>-</b>
+				<input type="text" id="hp3" maxlength="4" size="4">
+			</td>
+		</tr>
+		
+		<tr>
+			<th>성별</th>
+			<td>
+				<input type="radio" name="gender" value="여자" checked="checked">여자
+				<input type="radio" name="gender" value="남자">남자
+			</td>
+		</tr>
+		
+		<tr>
+			<th>자격증</th>
+			<td>
+				<input type="checkbox" name="lic" value="운전면허">운전면허
+				<input type="checkbox" name="lic" value="컴활 1급">컴활 1급
+				<input type="checkbox" name="lic" value="정보처리기사">정보처리기사
+			</td>		
+		</tr>
+		
+		<tr>
+			<th>글자색</th>
+			<td>
+				<input type="radio" name="fcolor" value="blue">파랑
+				<input type="radio" name="fcolor" value="magenta">핫핑크
+				<input type="radio" name="fcolor" value="orange">오렌지
+				<input type="radio" name="fcolor" value="red">빨강
+				<input type="radio" name="fcolor" value="black" checked="checked">검정
+			</td>
+		</tr>
+		
+		<tr>
+			<td colspan="2" align="center">
+				<button type="button" id="btn">선택정보 출력</button>
+			</td>
+		</tr>
+	</table>
+	
+	<div id="result"></div>
+
+</body>
+</html>

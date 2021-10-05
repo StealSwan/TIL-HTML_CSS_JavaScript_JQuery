@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Insert title here</title>
+<script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+</head>
+<body>
+
+	<div class="one">
+		첫번째 div
+			<div class="hana">하나</div>
+			<div>둘</div>
+			<div>셋</div>
+			<h3>h3 Tag</h3>
+			<h4>h4 Tag</h4>
+	</div>
+
+
+	<div class="two">
+		두번째 div
+			<div class="hana">하나</div>
+			<div>둘</div>
+			<div>셋</div>
+			<h3>h3 Tag</h3>
+			<h4>h4 Tag</h4>		
+	</div>
+	
+	
+<script type="text/javascript">
+
+	//parent(): 부모태그
+	//siblings(): 형제태그
+	//children(): 자식태그
+	//next(): 선택한 요소의 다음에 위치한 형제요소
+	//prev(): 선택한 요소의 바로 이전에 위치한 형제요소
+
+	$("div.one div.hana").siblings().css("color", "red");
+	$("div").children("div.hana").css("text-decoration", "underline");
+	$("div.hana").next().next().css("background-color", "orange");
+	$("div.two").find("h3").css("border", "2px solid green");
+	
+	$("div.one").click(function(){
+		
+		$(this).siblings().find("div").hide();
+		//$(this).siblings().find("div").hide("slow");	//천천히 사라짐
+	});
+
+	$("div.two").click(function(){
+		
+		$(this).find("div").show("slow");
+	});
+
+</script>	
+</body>
+</html>
