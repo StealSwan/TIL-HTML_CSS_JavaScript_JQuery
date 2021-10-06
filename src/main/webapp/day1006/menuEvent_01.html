@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Insert title here</title>
+<script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+
+<style type="text/css">
+
+	.red{color: red;}
+	.green{color: green;}
+	.blue{color: blue;}
+	
+	div.content>b{
+		cursor: pointer;
+		font-family: 'Comic Sans Ms';
+		font-size: 25pt;
+	}
+	
+	div.answer>h5{
+		/* 들여쓰기 */
+		text-indent: 30px;
+	}
+
+</style>
+
+<script type="text/javascript">
+
+	/* 헤드와 바디의 차이점은 $ 펑션을 먼저 주느냐 안주느냐의 차이이다 */
+	/* 헤드일때 준다 */
+	
+	$(function(){
+		
+		/* 각 메인 메뉴들만 보이게 하기 */
+		$("div.answer").hide();
+		
+		/* 서브메뉴만 팝업 */
+		$("div.content>b").click(function(){
+			
+			/* b태그의 다음값 */
+			$(this).next().show("slow");
+			
+			/* 클릭한 곳의 부모(div.content)의 형제들(siblings) */
+			$(this).parent().siblings().find("div.answer").hide("slow");
+		});
+		
+	})
+
+</script>
+
+</head>
+<body>
+
+	<div class="content red">
+		<b>내용 1</b>
+			<div class="answer">
+				<h5>내용 1에대한 댓글1</h5>
+				<h5>내용 1에대한 댓글2</h5>
+				<h5>내용 1에대한 댓글3</h5>
+			</div>
+	</div>
+
+	<div class="content green">
+		<b>내용 2</b>
+			<div class="answer">
+				<h5>내용 2에대한 댓글1</h5>
+				<h5>내용 2에대한 댓글2</h5>
+				<h5>내용 2에대한 댓글3</h5>
+			</div>
+	</div>
+
+	<div class="content blue">
+		<b>내용 3</b>
+			<div class="answer">
+				<h5>내용 3에대한 댓글1</h5>
+				<h5>내용 3에대한 댓글2</h5>
+				<h5>내용 3에대한 댓글3</h5>
+			</div>
+	</div>
+
+</body>
+</html>

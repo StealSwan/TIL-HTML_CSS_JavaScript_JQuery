@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Insert title here</title>
+<script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+</head>
+<script type="text/javascript">
+
+	$(function(){
+		
+		/* click() 최초에 선언된 element에만 동작 */
+
+		/* 두번째 파라메타에선 지정자를 선택 가능 */
+		
+		
+		//정적이벤트
+/* 		$("mylang").children().click(function(){
+			%(this).remove();
+		})
+ */		
+		/* 추가된 후, 삭제안됨 */
+/* 		$("#mylang").append('<li>JavaScript</li>');
+ */
+ 
+		//동적이벤트 - 동적으로 이벤트를 바인딩할 수 있는가의 차이
+		$("#mylang").on("click", 'li', function(){
+			
+			$(this).remove();
+		});
+ 
+		$("#mylang").append('<li>JavaScript</li>');
+	});
+
+</script>
+
+<body>
+
+	<ul id="mylang">
+		<li>Java</li>
+		<li>Oracle</li>
+		<li>Jquery</li>
+	</ul>
+
+</body>
+</html>
