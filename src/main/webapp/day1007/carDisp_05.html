@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Insert title here</title>
+<script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+<style type="text/css">
+
+	div.carA{
+		cursor: pointer;
+	}
+	
+	div.carB{
+		position: absolute;
+		left: 300px;
+		top: 80px;
+	}
+
+</style>
+
+<script type="text/javascript">
+
+	$(function(){
+		
+		//작은 자동차 이미지 넣기.. 배열로
+		var imgs = [
+			{src: '../image/car_a_01.PNG', cls: '01'},
+			{src: '../image/car_a_02.PNG', cls: '02'},
+			{src: '../image/car_a_03.PNG', cls: '03'},
+			{src: '../image/car_a_04.PNG', cls: '04'},
+			{src: '../image/car_a_05.PNG', cls: '05'},
+			{src: '../image/car_a_06.PNG', cls: '06'},
+			{src: '../image/car_a_07.PNG', cls: '07'},
+			{src: '../image/car_a_08.PNG', cls: '08'}
+		];
+		
+		//배열 for문 each로
+		var s = "";
+		
+		$.each(imgs, function(i,elt){
+			
+			s+="<img src='" + elt.src + "' class='" + elt.cls + "'>" + "<br>";
+		});
+		
+		$("div.carA").html(s);
+		
+		
+		//큰사진 넣기
+		$("div.carB").html("<img src='../image/car_b_01.PNG'>");
+		
+		
+		//이벤트...mouseover
+		//작은차 이미지에 커서를 두면 큰이미지가 나오게
+		//작은차 이동할때 큰이미지가 사라지게 효과(fade효과)
+		$("div.carA>img").hover(function(){
+			
+			var num = $(this).attr("class");
+			
+			/* fadeTo(시간, 투명도) */
+			$(this).fadeTo(1000,0.3);
+			
+			$("div.carB>img").attr("src", "../image/car_b_" + num + ".PNG");
+			
+		}, function(){
+			
+			$(this).fadeTo(1000,1);
+			
+			$("div.carB>img").attr("src", "../image/car_b_01.PNG");
+		});
+		
+		
+	});
+
+</script>
+
+</head>
+<body>
+
+	<div class="carA"></div>
+	<div class="carB"></div>
+
+</body>
+</html>

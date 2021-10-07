@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Insert title here</title>
+<script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+<style type="text/css">
+
+	div.wall{
+		position: absolute;
+		width: 200px;
+		height: 500px;
+		background-image: url("../image/bg2.png");
+		z-index: 2;
+	}
+	
+	#img1{
+		position: absolute;
+		left: 140px;
+		top: 100px;
+		width: 150px;
+		height: 200px;
+		z-index: 1;
+	}
+
+</style>
+
+<script type="text/javascript">
+
+	$(function(){
+		
+		$("#img1").click(function(){
+			
+			/* 너비가 0이 되면 호출 */
+			$(this).animate({width:"0px"}, 'slow', function(){
+				
+				$(this).animate({width: "150px"}, 'slow');
+			});
+		});
+		
+		
+		//trigger를 이용하여 3초에 한번씩 이미지 클릭효과
+		setInterval(function() {
+		
+			$("#img1").trigger("click");
+		},3000);
+	});
+
+</script>
+
+</head>
+<body>
+
+	<div class="wall"></div>
+	<img alt="" src="../image/03.png" id="img1">
+
+</body>
+</html>

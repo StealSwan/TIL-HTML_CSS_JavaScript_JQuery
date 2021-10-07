@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Insert title here</title>
+<script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+<style type="text/css">
+
+	h3 {
+		width: 400px;
+		height: 40px;
+		border: 1px solid #000;
+		line-height: 40px;
+		border-radius: 20px;
+		padding-left: 20px;
+		text-shadow: 10px 10px 20px gray;
+		cursor: pointer;
+	}
+
+	h3:active{
+		border: 5px solid gray;
+	}
+	
+	div{
+		position: absolute;
+		border: 2px solid gray;
+		width: 300px;
+		height: 300px;
+		border-radius: 200px;
+	}
+	
+	/* z인덱스는 큰 숫자가 위로 올라온다 */
+	
+	div.pink{
+		left: 200px;
+		top: 200px;
+		background-color: pink;
+		z-index: 5;
+	}
+
+	div.gray{
+		left: 150px;
+		top: 300px;
+		background-color: gray;	
+		z-index: 3;
+	}
+
+	div.cyan{
+		left: 40px;
+		top: 200px;
+		background-color: cyan;	
+		z-index: 1;
+	}
+
+</style>
+
+<script type="text/javascript">
+
+	$(function(){
+		
+		//z-index는 큰값 요소가 위로 올라온다
+		//연속숫자가 아니어도 상관없다
+		$("h3").click(function(){
+			
+			var cls= $(this).attr("class");
+			
+			if(cls=='pink'){
+				$("div.pink").css("z-index", 3);
+				$("div.gray").css("z-index", 2);
+				$("div.cyan").css("z-index", 1);
+			} else if (cls=='gray'){
+				$("div.pink").css("z-index", 2);
+				$("div.gray").css("z-index", 3);
+				$("div.cyan").css("z-index", 1);				
+			} else if (cls=='cyan'){
+				$("div.pink").css("z-index", 1);
+				$("div.gray").css("z-index", 2);
+				$("div.cyan").css("z-index", 3);
+			}
+		});
+		
+	});
+
+</script>
+
+
+</head>
+<body>
+
+	<h3 class="pink">Pink를 제일 위로 올리기</h3>
+	<h3 class="gray">Gray를 제일 위로 올리기</h3>
+	<h3 class="cyan">Cyan를 제일 위로 올리기</h3>
+
+
+	<div class="pink"></div>
+	<div class="gray"></div>
+	<div class="cyan"></div>
+
+</body>
+</html>
