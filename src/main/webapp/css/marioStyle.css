@@ -1,0 +1,84 @@
+body, ul {
+    margin: 0;
+    padding: 0;
+}
+
+li {
+    list-style-type: none;
+}
+
+img {
+    vertical-align: bottom;
+}
+
+body {
+    background-color: #c3edfe;
+    background-image: url(../mario/bg.png);
+    background-position: center bottom;
+    background-attachment: fixed;
+    color: #000;
+}
+
+.wrapper {
+    width: 600px;
+    margin: 30px auto;
+    text-align: center;
+}
+
+.wrapper .face {
+    overflow: hidden;
+}
+
+.wrapper .face li {
+    float: left;
+    position: relative;
+    top: 200px;
+}
+
+.wrapper .tabs {
+    overflow: hidden;
+}
+
+.wrapper .tabs li {
+    width: 33.3%;
+    height: 100px;
+    float: left;
+    cursor: pointer;
+    font-size: 40px;
+    line-height: 140px;
+    font-family: 'Lobster', cursive;
+    background-image: url(../mario/pipe-white.png);
+    color: #666;
+}
+
+.wrapper .tabs li:hover {
+    color: green; 
+}
+
+
+/* 제이쿼리에서 추가할 클래스 */
+.wrapper.tabs li.active{
+	background-image: url("../mario/pipe.png");
+	text-shadow: 2px 2px 5px #000;
+	color: #d3ffdf;
+}
+
+
+
+.wrapper .contents {
+    background-color: green;
+    position: relative;
+    border-bottom: 3px solid #003300;
+    border-radius: 10px;
+}
+
+.wrapper .contents li {
+    display: none;
+}
+
+.wrapper .contents li img {
+
+    margin: 20px;
+    border-bottom: 3px solid #003300;
+    border-radius: 10px;
+}

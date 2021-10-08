@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Insert title here</title>
+<script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+<link rel="stylesheet" href="../css/marioStyle.css">
+<link href="https://fonts.googleapis.com/css2?family=Jua&display=swap" rel="stylesheet">
+</head>
+<body>
+
+	<div class="wrapper">
+		<ul class="face">
+			<li><img alt="" src="../mario/icon01.png"></li>
+			<li><img alt="" src="../mario/icon02.png"></li>
+			<li><img alt="" src="../mario/icon03.png"></li>
+		</ul>
+		
+		<ul class="tabs">
+			<li>Mario</li>
+			<li>Luigi</li>
+			<li>Toad</li>
+		</ul>
+		
+		<ul class="contents">
+			<li><img alt="" src="../mario/page01.png"></li>
+			<li><img alt="" src="../mario/page02.png"></li>
+			<li><img alt="" src="../mario/page03.png"></li>
+		</ul>		
+	</div>
+
+
+<script type="text/javascript">
+
+	$(".tabs li").click(function(){
+		
+		$(this).addClass("active");
+		$(this).siblings().removeClass("active");
+		
+		var index = $(this).index();
+		
+		$(".contents li").eq(index).fadeIn();
+		$(".contents li").eq(index).siblings().hide();
+		
+		$(".face li").eq(index).animate({"top":0});
+		$(".face li").eq(index).siblings().animate({'top':200});
+	});
+	
+	
+	$(".tabs li").eq(0).trigger("click");
+
+</script>	
+
+
+</body>
+</html>
