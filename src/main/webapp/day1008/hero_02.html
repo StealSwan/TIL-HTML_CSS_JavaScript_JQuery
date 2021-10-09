@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Insert title here</title>
+<script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+<link rel="stylesheet" href="../css/hero.css">
+<script type="text/javascript">
+
+	$(function(){
+		
+		var current=0;
+		
+		$(".icons a").click(function(){
+			
+			//act클래스 추가
+			$(this).addClass("act");
+			$(this).siblings().removeClass("act");
+			
+			
+			var indexNum= $(this).index();
+			var widthNum= $(".hero-slide li").width();
+			
+			var result= widthNum*indexNum;
+			result= result*-1;
+			
+			/* 1번 아이콘 클릭시 0*960=0 */
+			/* 2번 아이콘 클릭시 1*960=960 */
+			/* 3번 아이콘 클릭시 2*960=1920 */
+			
+			$(".hero-slide").animate({"left": result});
+			//current=indexnum
+		});
+		
+		$(".icons a").eq(0).trigger("click");
+		
+		
+		//prev 클릭
+		$(".prev").click(function(){
+			
+			current=current-1;
+			selMovie();
+			$(".icons a").eq(current).trigger('click');
+		});
+		
+		
+		//next클릭
+		$(".next").click(function(){
+			current=current+1;
+			selMovie();
+			$(".icons a").eq(current).trigger('click');
+		});
+		
+		
+		//앞뒤이동에 쓰일함수
+		function selMovie(){
+			
+			if(current<0)
+				current=4;
+			if(current>4)
+				current=0;
+		}
+		
+	});
+
+</script>
+</head>
+<body>
+
+	<div class="main">
+		<div class="canvas">
+			<img alt="" src="../hero/cover.png" class="cover">
+				<ul class="hero-slide">
+					<li><img alt="" src="../hero/slide01.png"></li>
+					<li><img alt="" src="../hero/slide02.png"></li>
+					<li><img alt="" src="../hero/slide03.png"></li>
+					<li><img alt="" src="../hero/slide04.png"></li>
+					<li><img alt="" src="../hero/slide05.png"></li>
+				</ul>
+		</div>
+		
+		<div class="icons">
+			<a class="icon01">Avengers</a>
+			<a class="icon02">X-Man</a>
+			<a class="icon03">TransFormer</a>
+			<a class="icon04">Superman</a>
+			<a class="icon05">Batman</a>
+		</div>
+	</div>
+	
+	<div class="arrow">
+		<a class="prev">PREV</a>
+		<a class="next">NEXT</a>
+	</div>
+
+</body>
+</html>
