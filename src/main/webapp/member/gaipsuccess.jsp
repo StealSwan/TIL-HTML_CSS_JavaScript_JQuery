@@ -13,7 +13,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-
+ 
 	<%
 		//id를 읽는다
 		String id= request.getParameter("id");
