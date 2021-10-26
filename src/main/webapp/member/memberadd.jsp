@@ -14,7 +14,7 @@
 <title>Insert title here</title>
 </head>
 <body>
- 
+  
 	<%
 	
 		//한글엔코딩
